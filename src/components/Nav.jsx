@@ -2,7 +2,7 @@ import React from 'react'
 import {UserIcon} from '@heroicons/react/24/solid'
 export const Nav = () => {
   return (
-    <header className="flex items-center justify-around px-5 pt-4 max-sm:justify-between" >
+    <header className="flex p-12 bg-sky-500 mb-10 items-center justify-around px-5 pt-4 max-sm:justify-between" >
     <div className="flex w-100">
         <a className="ml-auto text-black font-bold md:text-xl xl:text-2xl" href="#">My tinerary</a>
     </div>
