@@ -1,4 +1,3 @@
-import React from 'react'
 import {UserIcon} from '@heroicons/react/24/solid'
 export const Nav = () => {
   return (

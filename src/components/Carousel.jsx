@@ -4,25 +4,24 @@ import { Carousel } from "react-responsive-carousel";
 export const Carousel2 = () => {
   const cityGroup = [
     {
-      index: "1",
+      id: "1",
       name: "trelew",
-      urls: ["/trelew1.jpg", "/trelew2.jpg"],
+      urls: ["/trelew1.jpg", "/trelew2.jpg", "/trelew3.jpg", "/trelew4.jpg"],
     },
     {
-      index: "2",
-      name: "trelew",
-      urls: ["/trelew3.jpg", "/trelew4.jpg"],
+      id: "2",
+      name: "cba",
+      urls: ["/cba1.jpg", "/cba2.jpg", "/cba3.jpg", "/cba4.jpg"],
     },
-    {
-      index: "3",
-      name: "trelew",
-      urls: ["/trelew5.jpg", "/trelew6.jpg"],
-    },
-    // ...
   ];
 
+  // Helper function to get the city by id
+  const getCityById = (id) => {
+    return cityGroup.find((city) => city.id === id);
+  };
+
   return (
-    <div className="flex">
+    <div>
       <Carousel
         showArrows={true}
         showThumbs={false}
@@ -31,15 +30,25 @@ export const Carousel2 = () => {
         infiniteLoop
         width={"50%"}
       >
-        {cityGroup.map((city, index) => (
-          <div className="grid grid-cols-2 gap-4" key={index}>
+        {cityGroup.map((city) => (
+          <div className="grid grid-cols-2 gap-2 " key={city.id}>
             <img
-              src={city.urls[0]}
+              src={getCityById(city.id).urls[0]}
               alt={city.name}
               className="w-full h-60 rounded"
             />
             <img
-              src={city.urls[1]}
+              src={getCityById(city.id).urls[1]}
+              alt={city.name}
+              className="w-full h-60 rounded"
+            />
+            <img
+              src={getCityById(city.id).urls[2]}
+              alt={city.name}
+              className="w-full h-60 rounded"
+            />
+            <img
+              src={getCityById(city.id).urls[3]}
               alt={city.name}
               className="w-full h-60 rounded"
             />

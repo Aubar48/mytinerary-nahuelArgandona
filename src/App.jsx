@@ -1,19 +1,14 @@
-import { useState } from 'react'
+import "./App.css";
+import { Nav } from "./components/Nav";
 
-import './App.css'
-import { Nav } from './components/Nav';
-import { Card } from './components/Card';
-import { Carousel2 } from './components/Carousel';
+import { ParentComponents } from "./components/ParentComponents";
 function App() {
-
-
   return (
     <>
-      <Nav/>
-      <Card/>
-      <Carousel2/>
+      <Nav />
+      <ParentComponents />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
