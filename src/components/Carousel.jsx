@@ -21,14 +21,14 @@ export const Carousel2 = () => {
   };
 
   return (
-    <div>
+    <div className="flex items-center justify-around max-sm:justify-between rounded">
       <Carousel
         showArrows={true}
         showThumbs={false}
         autoPlay={true}
         interval={2000}
         infiniteLoop
-        width={"50%"}
+        width={"100%"}
       >
         {cityGroup.map((city) => (
           <div className="grid grid-cols-2 gap-2 " key={city.id}>
