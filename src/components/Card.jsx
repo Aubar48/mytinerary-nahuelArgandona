@@ -20,7 +20,7 @@ export const Card = () => {
         <a
           href="https://losviajesdenena.com/que-ver-y-que-hacer-en-trelew-3/"
           className="flex justify-center items-center w-full  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
-          text-white font-bold py-1 px-1"
+          text-white font-bold py-1 px-1 hover:text-yellow-300"
         >
           View More
         </a>

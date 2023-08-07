@@ -12,14 +12,14 @@ export const Nav = () => {
         </p>
       </div>
       <nav className="flex items-center space-x-2  font-bold md:space-x-4 md:text-xl xl:text-2xl">
-        <a className=" text-black font-semibold" href="#">
+        <a className=" text-black font-semibold hover:text-yellow-300" href="#">
           Home
         </a>
-        <a className=" text-black font-semibold" href="#">
+        <a className=" text-black font-semibold hover:text-yellow-300" href="#">
           Cities
         </a>
         <a
-          className="flex items-baseline gap-1 py-1 px-1  text-white font-semibold bg-black rounded"
+          className="flex items-baseline gap-1 py-1 px-1  text-white font-semibold bg-black rounded hover:text-yellow-300"
           href="#"
         >
           {" "}

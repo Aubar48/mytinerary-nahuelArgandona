@@ -32,26 +32,39 @@ export const Carousel2 = () => {
       >
         {cityGroup.map((city) => (
           <div className="grid grid-cols-2 gap-2 " key={city.id}>
-            <img
-              src={getCityById(city.id).urls[0]}
-              alt={city.name}
-              className="w-full h-60 rounded"
-            />
-            <img
-              src={getCityById(city.id).urls[1]}
-              alt={city.name}
-              className="w-full h-60 rounded"
-            />
-            <img
-              src={getCityById(city.id).urls[2]}
-              alt={city.name}
-              className="w-full h-60 rounded"
-            />
-            <img
-              src={getCityById(city.id).urls[3]}
-              alt={city.name}
-              className="w-full h-60 rounded"
-            />
+            <div>
+              <img
+                src={getCityById(city.id).urls[0]}
+                alt={city.name}
+                className="w-full h-60 rounded"
+              />
+              <p>{city.name}</p>
+            </div>
+
+            <div>
+              <img
+                src={getCityById(city.id).urls[1]}
+                alt={city.name}
+                className="w-full h-60 rounded"
+              />
+              <p>{city.name}</p>
+            </div>
+            <div>
+              <img
+                src={getCityById(city.id).urls[2]}
+                alt={city.name}
+                className="w-full h-60 rounded"
+              />
+              <p>{city.name}</p>
+            </div>
+            <div>
+              <img
+                src={getCityById(city.id).urls[3]}
+                alt={city.name}
+                className="w-full h-60 rounded"
+              />
+              <p>{city.name}</p>
+            </div>
           </div>
         ))}
       </Carousel>
