@@ -2,19 +2,29 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 export const Carousel2 = () => {
-  const cityGroup = [
+  const cityGroupCarousel = [
     {
       id: "1",
       name: "Chubut Trelew",
       urls: [
-        "Regional_Museum.jpg",
-        "Astronomical_Center.jpg",
-        "Paleontological_Museum.jpg",
-        "Punta_Tombo.jpg",
+        "Sacred_Heart_Church.jpg",
+        "Sarmiento_Park_Stairs_Viewpoint.jpg",
+        "Bicentennial_Civic_Center.jpg",
+        "The_Canada_of_Cordoba.jpg",
       ],
     },
     {
       id: "2",
+      name: "Córdoba Capital",
+      urls: [
+        "Sacred_Heart_Church.jpg",
+        "Sarmiento_Park_Stairs_Viewpoint.jpg",
+        "Bicentennial_Civic_Center.jpg",
+        "The_Canada_of_Cordoba.jpg",
+      ],
+    },
+    {
+      id: "3",
       name: "Córdoba Capital",
       urls: [
         "Sacred_Heart_Church.jpg",
@@ -36,26 +46,29 @@ export const Carousel2 = () => {
   };
 
   return (
-    <div className="flex items-center justify-around max-sm:justify-between rounded shadow-amber-400 shadow-md  ">
+    <div className="">
       <Carousel
+        showStatus={false}
         showArrows={true}
         showThumbs={false}
         autoPlay={true}
-        interval={2000}
+        interval={3000}
         infiniteLoop
         width={"100%"}
       >
-        {cityGroup.map((city) => (
-          <div className="grid grid-cols-2 gap-2 " key={city.id}>
+        {cityGroupCarousel.map((city) => (
+          <div
+            className="grid max-md:grid-cols-1 md:grid-cols-2  rounded gap-2"
+            key={city.id}
+          >
             {city.urls.map((url, index) => (
-              <div key={index} className="relative  ">
+              <div key={index} className="relative">
                 <img
                   src={url}
                   alt={city.name}
-                  className="w-full h-60 rounded "
+                  className="w-full h-full rounded "
                 />
-                <div className="absolute bottom-0 w-full text-center font-semibold text-yellow-400 animate-pulse ">
-                  <p>{city.name}</p>
+                <div className="absolute bottom-0 w-full text-center font-bold text-lg text-yellow-400 animate-pulse ">
                   <p>{formatFileName(url)}</p>
                 </div>
               </div>

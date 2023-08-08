@@ -1,30 +1,47 @@
 export const Card = () => {
+  const cityGroupCard = [
+    {
+      id: "1",
+      name: "The Canada of Córdoba",
+      urls: ["The_Canada_of_Cordoba.jpg"],
+      descripción:
+        "Cañada Córdoba is the partial channeling of the La Cañada stream that crosses the city of Córdoba, Argentina, from southwest to north.",
+    },
+    {
+      id: "2",
+      name: "Sarmiento Park of Córdoba",
+      urls: ["Sarmiento_Park_Stairs_Viewpoint.jpg"],
+      descripción:
+        "A well-known staircase with checkered tiles that goes up to a viewpoint with views of the park and the horizon.",
+    },
+  ];
   return (
-    <div className="flex max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400">
-      <img
-        className="object-cover max-md:w-1/4 max-md:h-auto h-auto md:w-1/2 rounded-lg"
-        src="./public/Regional_Museum.jpg"
-        alt=""
-      />
-      <div className="flex flex-col max-md:justify-center md:justify-between">
-        <h5 className="flex justify-center font-bold h-auto text-black md:mt-5">
-          The Pueblo de Luis Regional Museum in Trelew.
-        </h5>
-        <p className="font-normal h-auto text-gray-700 dark:text-gray-400">
-          It exposes, throughout seven very complete rooms, aspects of the
-          history of the city as well as the daily life and customs of native
-          peoples and settlers. It also shows how the rise of the railway and
-          testimonies of travelers who explored Patagonian coasts between the
-          16th and 19th centuries.
-        </p>
-        <a
-          href="https://losviajesdenena.com/que-ver-y-que-hacer-en-trelew-3/"
-          className="flex justify-center items-center w-full  bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
-          text-white font-bold py-1 px-1 hover:text-yellow-300"
+    <div>
+      {cityGroupCard.map((city, index) => (
+        <div
+          key={index}
+          className="flex max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2"
         >
-          View More
-        </a>
-      </div>
+          <img
+            className="object-cover max-md:w-1/4 max-md:h-auto md:w-1/2 rounded-lg"
+            src={city.urls[0]} // Use the first URL from the urls array
+            alt={city.name}
+          />
+          <div className="flex flex-col max-md:justify-center md:justify-between">
+            <h2 className="flex justify-center font-bold text-black ">
+              {city.name}
+            </h2>
+            <p>{city.descripción}</p>
+            <a
+              href="#"
+              className="flex justify-center items-center w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
+                text-white font-bold py-1 px-1 hover:text-yellow-300"
+            >
+              View More
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
