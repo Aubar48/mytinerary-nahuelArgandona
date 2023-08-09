@@ -7,13 +7,7 @@ export const Card = () => {
       descripción:
         "Cañada Córdoba is the partial channeling of the La Cañada stream that crosses the city of Córdoba, Argentina, from southwest to north.",
     },
-    {
-      id: "2",
-      name: "Sarmiento Park of Córdoba",
-      urls: ["Sarmiento_Park_Stairs_Viewpoint.jpg"],
-      descripción:
-        "A well-known staircase with checkered tiles that goes up to a viewpoint with views of the park and the horizon.",
-    },
+    
   ];
   return (
     <div>

@@ -20,7 +20,7 @@ export const Footer = () => {
   ];
   return (
     <div
-      className="md:flex items-center max-sm:justify-between md:gap-10 md:justify-center bg-sky-500 max-md:mt-5 md:mt-20 max-lg:mt-56 xl:mt-5
+      className="md:flex items-center max-sm:justify-between sm:justify-around md:gap-1 bg-sky-500 mt-1 py-5
     md:text-xl xl:text-2xl font-bold"
     >
       <div className="flex">

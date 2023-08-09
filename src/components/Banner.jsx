@@ -15,7 +15,7 @@ export const Banner = () => {
 
  
   return (
-    <div className="rounded shadow-amber-400 shadow-md mb-5">
+    <div className="rounded shadow-amber-400 shadow-md mb-2">
       <Carousel
         showIndicators={false}
         showStatus={false}
@@ -33,7 +33,7 @@ export const Banner = () => {
                 <img
                   src={url}
                   alt={city.name}
-                  className="w-full h-96 rounded "
+                  className="w-full max-sm:h-48 h-72 rounded "
                 />
                 
               </div>

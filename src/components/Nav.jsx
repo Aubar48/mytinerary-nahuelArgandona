@@ -2,7 +2,7 @@ import { UserIcon } from "@heroicons/react/24/solid";
 
 export const Nav = () => {
   return (
-    <header className="flex pt-4 py-4 bg-sky-500 mb-5 items-center justify-around max-sm:justify-between">
+    <header className="flex pt-4 py-4 bg-sky-500 mb-2 items-center justify-around max-sm:justify-between">
       <div className="flex items-center w-100">
         <img
           className="flex max-md:w-10 md:w-10 xl:w-16"
