@@ -16,3 +16,12 @@
     -webkit-text-fill-color: transparent;
   }
 }
+/* Estilo para mostrar el menú en pantallas pequeñas */
+@media (max-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+  .md\:flex {
+    display: flex;
+  }
+}

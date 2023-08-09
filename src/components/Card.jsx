@@ -20,7 +20,7 @@ export const Card = () => {
       {cityGroupCard.map((city, index) => (
         <div
           key={index}
-          className="flex max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2"
+          className="flex sm max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2"
         >
           <img
             className="object-cover max-md:w-1/4 max-md:h-auto md:w-1/2 rounded-lg"

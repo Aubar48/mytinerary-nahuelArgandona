@@ -1,16 +1,29 @@
 import "./App.css";
-import { Nav } from "./components/Nav";
-import { Banner } from "./components/Banner";
-import { ParentComponents } from "./components/ParentComponents";
-import { Footer } from "./components/Footer";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Home } from "./components/Home";
+import { MainLayout } from "./layouts/MainLayout";
+import { HomeCities } from "./components/HomeCities";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/cities",
+          element: <HomeCities />,
+        },
+      ],
+    },
+  ]);
   return (
     <>
-      <Nav />
-      <Banner />
-      <ParentComponents />
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }

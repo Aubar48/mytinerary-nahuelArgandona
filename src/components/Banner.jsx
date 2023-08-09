@@ -22,7 +22,7 @@ export const Banner = () => {
         showArrows={false}
         showThumbs={false}
         autoPlay={true}
-        interval={6000}
+        interval={5000}
         infiniteLoop
         width={"100%"}
       >
