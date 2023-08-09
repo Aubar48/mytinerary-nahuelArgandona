@@ -20,7 +20,7 @@ export const Footer = () => {
   ];
   return (
     <div
-      className="md:flex md:gap-10 md:justify-center md:items-center bg-sky-500 max-md:mt-5 md:mt-20 max-lg:mt-56 xl:mt-5
+      className="md:flex items-center max-sm:justify-between md:gap-10 md:justify-center bg-sky-500 max-md:mt-5 md:mt-20 max-lg:mt-56 xl:mt-5
     md:text-xl xl:text-2xl font-bold"
     >
       <div className="flex">
@@ -42,7 +42,7 @@ export const Footer = () => {
           Cities
         </a>
       </nav>
-      <div className="flex gap-5">
+      <div className="flex gap-2 max-sm:h-1/5 max-sm:w-1/5">
         {socialMedia.map((url, index) => (
           <SocialIcon
             key={index}
