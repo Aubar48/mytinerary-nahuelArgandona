@@ -7,7 +7,6 @@ export const Card = () => {
       descripción:
         "Cañada Córdoba is the partial channeling of the La Cañada stream that crosses the city of Córdoba, Argentina, from southwest to north.",
     },
-    
   ];
   return (
     <div>

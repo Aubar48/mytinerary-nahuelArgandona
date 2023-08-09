@@ -13,7 +13,6 @@ export const Banner = () => {
     },
   ];
 
- 
   return (
     <div className="rounded shadow-amber-400 shadow-md mb-2">
       <Carousel
@@ -35,7 +34,6 @@ export const Banner = () => {
                   alt={city.name}
                   className="w-full max-sm:h-48 h-72 rounded "
                 />
-                
               </div>
             ))}
           </div>

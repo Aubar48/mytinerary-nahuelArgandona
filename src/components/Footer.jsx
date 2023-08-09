@@ -33,12 +33,15 @@ export const Footer = () => {
           My tinerary
         </p>
       </div>
-     
+
       <nav className="space-x-2 font-bold md:space-x-4 md:text-xl xl:text-2xl">
         <a className=" text-black font-semibold hover:text-yellow-300" href="/">
           Home
         </a>
-        <a className=" text-black font-semibold hover:text-yellow-300" href="/cities">
+        <a
+          className=" text-black font-semibold hover:text-yellow-300"
+          href="/cities"
+        >
           Cities
         </a>
       </nav>

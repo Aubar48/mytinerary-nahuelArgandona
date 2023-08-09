@@ -62,7 +62,10 @@ export const Carousel2 = () => {
             key={city.id}
           >
             {city.urls.map((url, index) => (
-              <div key={index} className="relative shadow-amber-400 shadow-md border-amber-400 h-52">
+              <div
+                key={index}
+                className="relative shadow-amber-400 shadow-md border-amber-400 h-52"
+              >
                 <img
                   src={url}
                   alt={city.name}
