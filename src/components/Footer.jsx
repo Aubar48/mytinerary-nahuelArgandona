@@ -20,8 +20,8 @@ export const Footer = () => {
   ];
   return (
     <div
-      className="md:flex items-center max-sm:justify-between sm:justify-around md:gap-1 bg-sky-500 mt-1 py-5
-    md:text-xl xl:text-2xl font-bold"
+      className="flex items-center justify-between sm:justify-around md:gap-1 bg-sky-500 mt-2 py-4
+    md:text-xl xl:text-2xl font-bold "
     >
       <div className="flex">
         <img
@@ -30,7 +30,7 @@ export const Footer = () => {
           alt="icon"
         />
         <p className="flex items-center font-bold md:text-xl xl:text-5xl animate-pulse text-gradient-argentina">
-          My tinerary
+          Mytinerary
         </p>
       </div>
 

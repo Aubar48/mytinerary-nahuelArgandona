@@ -1,8 +1,11 @@
-import "./App.css";
+import * as React from "react";
+import {NextUIProvider} from "@nextui-org/react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Home } from "./components/Home";
 import { MainLayout } from "./layouts/MainLayout";
 import { HomeCities } from "./components/HomeCities";
+
+import "./App.css";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,9 +25,9 @@ function App() {
     },
   ]);
   return (
-    <>
+    <NextUIProvider>
       <RouterProvider router={router} />
-    </>
+    </NextUIProvider>
   );
 }
 

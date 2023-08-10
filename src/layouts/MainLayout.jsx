@@ -1,10 +1,10 @@
-import { Nav } from "./../components/Nav";
+import Nav2 from "../components/Nav2";
 import { Footer } from "./../components/Footer";
 import { Outlet } from "react-router-dom";
 export const MainLayout = () => {
   return (
     <>
-      <Nav className="bg-indigo-600 w-full h-screen" />
+      <Nav2/>
       <Outlet />
       <Footer />
     </>

@@ -14,7 +14,7 @@ export const Banner = () => {
   ];
 
   return (
-    <div className="rounded shadow-amber-400 shadow-md mb-2">
+    <div className="rounded shadow-amber-400 shadow-md">
       <Carousel
         showIndicators={false}
         showStatus={false}
