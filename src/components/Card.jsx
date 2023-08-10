@@ -2,10 +2,11 @@ export const Card = () => {
   const cityGroupCard = [
     {
       id: "1",
-      name: "The Canada of Córdoba",
+      name: "The Cañada of Córdoba",
       urls: ["The_Canada_of_Cordoba.jpg"],
+      msj:"Find your perfect trip, designed by insiders who know and love their cities! ",
       descripción:
-        "Cañada Córdoba is the partial channeling of the La Cañada stream that crosses the city of Córdoba, Argentina, from southwest to north.",
+        "Cañada Córdoba is the partial channeling of the La Cañada stream that crosses the city of Córdoba, Argentina, from southwest to north."
     },
   ];
   return (
@@ -21,14 +22,17 @@ export const Card = () => {
             alt={city.name}
           />
           <div className="flex flex-col max-md:justify-center md:justify-between">
-            <h2 className="flex justify-center font-bold text-black ">
+            <h2 className="flex justify-center font-bold text-black text-3xl ">
               {city.name}
             </h2>
+            <h4 className="font-bold text-black ">
+              {city.msj}
+            </h4>
             <p>{city.descripción}</p>
             <a
               href="#"
               className="flex justify-center items-center w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
-                text-white font-bold py-1 px-1 hover:text-yellow-300"
+                text-black font-bold py-1 px-1 hover:text-yellow-300"
             >
               View More
             </a>

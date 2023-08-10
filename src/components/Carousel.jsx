@@ -17,20 +17,20 @@ export const Carousel2 = () => {
       id: "2",
       name: "Córdoba Capital",
       urls: [
-        "Sacred_Heart_Church.jpg",
-        "Sarmiento_Park_Stairs_Viewpoint.jpg",
-        "Bicentennial_Civic_Center.jpg",
-        "The_Canada_of_Cordoba.jpg",
+        "The_Council.jpg",
+        "Bicentennial_walk.jpg",
+        "Museo_Palacio_Ferreyra.jpg",
+        "Museum_of_Emilio_Caraffa.jpg",
       ],
     },
     {
       id: "3",
       name: "Córdoba Capital",
       urls: [
-        "Sacred_Heart_Church.jpg",
-        "Sarmiento_Park_Stairs_Viewpoint.jpg",
-        "Bicentennial_Civic_Center.jpg",
-        "The_Canada_of_Cordoba.jpg",
+        "Urban_Man_by_Antonio_Segu.jpg",
+        "Walk_of_the_Good_Shepherd.jpg",
+        "Zoo_Garden.jpg",
+        "Park_San_Martin.jpg",
       ],
     },
   ];

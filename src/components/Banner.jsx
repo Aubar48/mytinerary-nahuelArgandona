@@ -1,6 +1,9 @@
 import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importar los estilos del carousel
+
+
 export const Banner = () => {
-  const cityGroup = [
+  const cityGroupBanner = [
     {
       id: "1",
       name: "Córdoba Capital",
@@ -8,7 +11,7 @@ export const Banner = () => {
     },
     {
       id: "2",
-      name: "Argentina",
+      name: "Argentina ",
       urls: ["Bandera_Argentina.jpg"],
     },
   ];
@@ -25,15 +28,18 @@ export const Banner = () => {
         infiniteLoop
         width={"100%"}
       >
-        {cityGroup.map((city) => (
+        {cityGroupBanner.map((city) => (
           <div className="" key={city.id}>
             {city.urls.map((url, index) => (
-              <div key={index} className="relative  ">
+              <div key={index} className="relative">
                 <img
                   src={url}
                   alt={city.name}
-                  className="w-full max-sm:h-48 h-72 rounded "
+                  className="w-full max-sm:h-48 h-72 rounded"
                 />
+                <div className="absolute bottom-20 w-full text-center font-bold text-6xl text-yellow-400 animate-pulse shadow-amber-400 shadow-md ">
+                  <p>{city.name}</p> {/* Aquí corregí cityGroupBanner.name a city.name */}
+                </div>
               </div>
             ))}
           </div>
