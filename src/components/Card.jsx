@@ -30,7 +30,7 @@ export const Card = () => {
             </h4>
             <p>{city.descripción}</p>
             <a
-              href="#"
+              href="/cities"
               className="flex justify-center items-center w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
                 text-black font-bold py-1 px-1 hover:text-yellow-300"
             >
