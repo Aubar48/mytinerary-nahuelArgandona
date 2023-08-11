@@ -5,7 +5,7 @@ export const Carousel2 = () => {
   const cityGroupCarousel = [
     {
       id: "1",
-      name: "Chubut Trelew",
+      name: "Córdoba capital",
       urls: [
         "Sacred_Heart_Church.jpg",
         "Sarmiento_Park_Stairs_Viewpoint.jpg",
@@ -25,6 +25,16 @@ export const Carousel2 = () => {
     },
     {
       id: "3",
+      name: "Córdoba Capital",
+      urls: [
+        "Urban_Man_by_Antonio_Segu.jpg",
+        "Walk_of_the_Good_Shepherd.jpg",
+        "Zoo_Garden.jpg",
+        "Park_San_Martin.jpg",
+      ],
+    },
+    {
+      id: "4",
       name: "Córdoba Capital",
       urls: [
         "Urban_Man_by_Antonio_Segu.jpg",

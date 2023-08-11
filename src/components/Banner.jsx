@@ -37,9 +37,7 @@ export const Banner = () => {
                   alt={city.name}
                   className="w-full max-sm:h-48 h-72 rounded"
                 />
-                <div className="absolute bottom-20 w-full text-center font-bold text-6xl text-yellow-400 animate-pulse shadow-amber-400 shadow-md ">
-                  <p>{city.name}</p> {/* Aquí corregí cityGroupBanner.name a city.name */}
-                </div>
+                
               </div>
             ))}
           </div>
