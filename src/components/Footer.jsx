@@ -31,12 +31,15 @@ export const Footer = () => {
         </p>
       </div>
 
-      <nav className="flex space-x-2 font-bold md:space-x-4 md:text-xl xl:text-2xl mt-4 md:mt-0">
-        <a className="text-black font-semibold hover:text-yellow-300" href="/">
+      <nav className="flex space-x-2  md:space-x-4 md:text-xl xl:text-2xl mt-4 md:mt-0">
+        <a
+          className="text-black hover:text-yellow-300 border-solid rounded-xl p-1 items-center"
+          href="/"
+        >
           Home
         </a>
         <a
-          className="text-black font-semibold hover:text-yellow-300"
+          className="text-black  hover:text-yellow-300 rounded-xl p-1 items-center"
           href="/cities"
         >
           Cities
