@@ -6,6 +6,7 @@ import { MainLayout } from "./layouts/MainLayout";
 import { HomeCities } from "./components/HomeCities";
 
 import "./App.css";
+import { DetailsCity } from "./components/DetailsCity";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +22,10 @@ function App() {
           path: "/cities",
           element: <HomeCities />,
         },
+        {
+          path: "/cities/:id",
+          element:<DetailsCity/>
+        }
       ],
     },
   ]);

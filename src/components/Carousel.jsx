@@ -68,20 +68,20 @@ export const Carousel2 = () => {
       >
         {cityGroupCarousel.map((city) => (
           <div
-            className="grid max-md:grid-cols-1 md:grid-cols-2  rounded gap-2 "
+            className="grid max-md:grid-cols-1 md:grid-cols-2  rounded gap-3 "
             key={city.id}
           >
             {city.urls.map((url, index) => (
               <div
                 key={index}
-                className="relative shadow-amber-400 shadow-md border-amber-400 h-52"
+                className="relative shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2" 
               >
                 <img
                   src={url}
                   alt={city.name}
-                  className="w-full h-full rounded "
+                  className="w-full h-full rounded object-cover"
                 />
-                <div className="absolute bottom-0 w-full text-center font-bold text-lg text-yellow-400 animate-pulse shadow-amber-400 shadow-md border-amber-400 ">
+                <div className="absolute bottom-0 w-full text-center font-bold text-lg text-yellow-400 animate-pulse shadow-amber-400 shadow-md">
                   <p>{formatFileName(url)}</p>
                 </div>
               </div>
