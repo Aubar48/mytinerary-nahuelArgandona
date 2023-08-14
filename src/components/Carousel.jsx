@@ -81,7 +81,7 @@ export const Carousel2 = () => {
                   alt={city.name}
                   className="w-full h-full rounded object-cover"
                 />
-                <div className="absolute bottom-0 w-full text-center font-bold text-lg text-yellow-400 animate-pulse shadow-amber-400 shadow-md">
+                <div className="absolute bottom-0 w-full font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1">
                   <p>{formatFileName(url)}</p>
                 </div>
               </div>

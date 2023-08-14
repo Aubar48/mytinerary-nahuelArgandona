@@ -31,8 +31,7 @@ export const Card = () => {
             <p>{city.descripción}</p>
             <a
               href="/cities"
-              className="flex justify-center items-center w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
-                text-black font-bold py-1 px-1 hover:text-yellow-300"
+              className="flex justify-center items-center font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1 hover:text-yellow-300"
             >
               View More
             </a>

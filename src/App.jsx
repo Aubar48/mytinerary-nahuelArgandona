@@ -7,6 +7,7 @@ import { HomeCities } from "./components/HomeCities";
 
 import "./App.css";
 import { DetailsCity } from "./components/DetailsCity";
+import { Component404 } from "./components/Component404";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ function App() {
         {
           path: "/cities/:id",
           element:<DetailsCity/>
+        },
+        {
+          path: "*",
+          element:<Component404/>
         }
       ],
     },
