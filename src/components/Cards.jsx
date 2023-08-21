@@ -19,14 +19,18 @@ export const Cards = () => {
           className="w-full p-2 rounded-lg mb-4 max-w-[40rem] border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
         />
       </div>
-
       {filteredCityCards.length === 0 && (
-        <div className="text-center text-red-600 mb-4">
-          Sorry, no results found.
+        <div className="mt-4 text-center flex justify-center h-96">
+          <img
+            src="https://media.giphy.com/media/WTjnWYENpLxS8JQ5rz/giphy.gif"
+            className="max-w-full"
+          />
         </div>
-      )}
+      )
+      
+      }
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center  min-h-[29.1vh]">
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
@@ -62,16 +66,7 @@ export const Cards = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      {filteredCityCards.length === 0 && (
-        <div className="mt-4 text-center flex justify-center h-96 min-h-[66.3vh] ">
-          <img
-            src="https://media.giphy.com/media/WTjnWYENpLxS8JQ5rz/giphy.gif"
-            className="max-w-full"
-          />
-        </div>
-      )}
+      </div> 
     </div>
   );
 };
