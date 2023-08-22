@@ -1,11 +1,22 @@
-import { useState } from "react";
-import cityGroupCards from "../utils/data";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios"; // Importa Axios
+
 export const Cards = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [cityData, setCityData] = useState([]);
 
-  const filteredCityCards = cityGroupCards.filter((city) =>
-    city.name.toLowerCase().includes(searchTerm.toLowerCase())
+  useEffect(() => {
+    // Realiza una solicitud a tu API utilizando Axios
+    // Ajusta la URL de la API según tu configuración
+    axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL 
+    
+      .then((response) => setCityData(response.data.response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  const filteredCityCards = cityData.filter((city) =>
+    city.city.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -24,13 +35,11 @@ export const Cards = () => {
           <img
             src="https://media.giphy.com/media/WTjnWYENpLxS8JQ5rz/giphy.gif"
             className="max-w-full"
+            alt="No results found"
           />
         </div>
-      )
-      
-      }
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center  min-h-[29.1vh]">
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center min-h-[29.1vh]">
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
@@ -39,26 +48,26 @@ export const Cards = () => {
             <div className="relative h-60">
               <img
                 className="object-cover w-full h-full rounded-t-lg"
-                src={city.urls[0]}
-                alt={city.name}
+                src={city.photo}
+                alt={city.city}
               />
               <div className="absolute bottom-0 text-center w-full">
                 <p className="font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1">
-                  {city.name}
+                  {city.city}
                 </p>
               </div>
             </div>
             <div className="flex flex-col justify-between flex-grow">
-              <div className="flex flex-row gap-5 justify-center text-center ">
-                <p className="font-bold text-lg ">
-                  {city.pais}
-                </p>
-                <p className="font-bold text-lg ">
-                  {city.provincia}
-                </p>
+              <div className="flex flex-row gap-5 justify-center text-center">
+                <h3 className="font-bold text-lg">{city.country}</h3>
+                {/* Puedes mostrar otras propiedades como population aquí */}
               </div>
+              <div>
+              <p className="font-bold text-sm px-2">{city.smalldescription}</p>
+              </div>
+                
               <NavLink
-                to={"/cities/" + city.name}
+                to={"/cities/" + city.city}
                 className="text-lg bg-amber-600 rounded font-bold py-1 px-4 text-center hover:text-yellow-300"
               >
                 View More
@@ -66,7 +75,7 @@ export const Cards = () => {
             </div>
           </div>
         ))}
-      </div> 
+      </div>
     </div>
   );
 };
