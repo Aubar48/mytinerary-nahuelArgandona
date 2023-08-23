@@ -20,7 +20,7 @@ export const Cards = () => {
   );
 
   return (
-    <div className="px-2">
+    <div className="px-2 min-h-[78.5vh]">
       <div className="flex justify-center">
         <input
           type="text"
@@ -39,7 +39,7 @@ export const Cards = () => {
           />
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center min-h-[29.1vh]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center min-h-[29.1vh]">
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
