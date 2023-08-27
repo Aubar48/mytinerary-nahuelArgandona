@@ -1,18 +1,35 @@
-import React from "react";
-
+import React, { useState, useRef } from "react";
 import { Input } from "@nextui-org/react";
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import { Button } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [isVisible, setIsVisible] = React.useState(false);
-
+  const navigate = useNavigate(); // Importante: Utiliza useNavigate para la navegación programática
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const mail = useRef();
+  const password = useRef();
+  async function handleSignIn() {
+    try {
+      const data = {
+        mail: mail.current.value,
+        password: password.current.value,
+      };
+      console.log("Usuario logeado exitosamente");
+      console.log(data);
+      // Redirige al usuario al "home"
+      navigate("/"); // Reemplaza "/" con la URL de tu página principal (el "home")
+    } catch (error) {
+      console.error("Error al logear con el usuario:", error);
+    }
+  }
   return (
     <form className="py-10 min-h-[78.5vh] flex flex-col items-center gap-2">
       <Input
+        ref={mail}
         type="email"
         label="Email"
         variant="bordered"
@@ -21,6 +38,7 @@ export const Login = () => {
       />
 
       <Input
+        ref={password}
         label="Password"
         variant="bordered"
         placeholder="Enter your password"
@@ -42,6 +60,7 @@ export const Login = () => {
       />
       <Button
         radius="full"
+        onClick={handleSignIn}
         className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
       >
         Login
@@ -54,7 +73,6 @@ export const Login = () => {
         >
           Sign Up
         </Link>
-        
       </p>
     </form>
   );
