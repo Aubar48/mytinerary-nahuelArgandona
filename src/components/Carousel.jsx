@@ -1,49 +1,25 @@
+import { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import axios from "axios";
 
 export const Carousel2 = () => {
-  const cityGroupCarousel = [
-    {
-      id: "1",
-      name: "Córdoba capital",
-      urls: [
-        "Sacred_Heart_Church.jpg",
-        "Sarmiento_Park_Stairs_Viewpoint.jpg",
-        "Bicentennial_Civic_Center.jpg",
-        "The_Canada_of_Cordoba.jpg",
-      ],
-    },
-    {
-      id: "2",
-      name: "Córdoba Capital",
-      urls: [
-        "The_Council.jpg",
-        "Bicentennial_walk.jpg",
-        "Museo_Palacio_Ferreyra.jpg",
-        "Museum_of_Emilio_Caraffa.jpg",
-      ],
-    },
-    {
-      id: "3",
-      name: "Córdoba Capital",
-      urls: [
-        "Urban_Man_by_Antonio_Segu.jpg",
-        "Walk_of_the_Good_Shepherd.jpg",
-        "Zoo_Garden.jpg",
-        "Park_San_Martin.jpg",
-      ],
-    },
-    {
-      id: "4",
-      name: "Córdoba Capital",
-      urls: [
-        "Urban_Man_by_Antonio_Segu.jpg",
-        "Walk_of_the_Good_Shepherd.jpg",
-        "Zoo_Garden.jpg",
-        "Park_San_Martin.jpg",
-      ],
-    },
-  ];
+  const [cityGroupCarousel, setCityGroupCarousel] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/cities/carousel")
+      .then((response) => {
+        if (Array.isArray(response.data.data_carousel)) {
+          setCityGroupCarousel(response.data.data_carousel);
+        } else {
+          console.error("API response is not an array: ", response.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data from API: ", error);
+      });
+  }, []);
 
   // Helper function to remove file extension
   const removeExtension = (filename) => {
@@ -55,6 +31,12 @@ export const Carousel2 = () => {
     return removeExtension(filename).replace(/_/g, " ");
   };
 
+  // Split the cityGroupCarousel into arrays of 4 items each
+  const chunkedCityGroups = [];
+  for (let i = 0; i < cityGroupCarousel.length; i += 4) {
+    chunkedCityGroups.push(cityGroupCarousel.slice(i, i + 4));
+  }
+
   return (
     <div className="">
       <Carousel
@@ -62,27 +44,27 @@ export const Carousel2 = () => {
         showArrows={true}
         showThumbs={false}
         autoPlay={true}
-        interval={3000}
+        interval={5000}
         infiniteLoop
         width={"100%"}
       >
-        {cityGroupCarousel.map((city) => (
+        {chunkedCityGroups.map((cityGroup, index) => (
           <div
             className="grid max-md:grid-cols-1 md:grid-cols-2  rounded gap-3 "
-            key={city.id}
+            key={index}
           >
-            {city.urls.map((url, index) => (
+            {cityGroup.map((city) => (
               <div
-                key={index}
-                className="relative shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2" 
+                key={city._id}
+                className="relative shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2"
               >
                 <img
-                  src={url}
-                  alt={city.name}
+                  src={city.photo}
+                  alt={city.city}
                   className="w-full h-full rounded object-cover"
                 />
                 <div className="absolute bottom-0 w-full font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1">
-                  <p>{formatFileName(url)}</p>
+                  <p>{formatFileName(city.city)}</p>
                 </div>
               </div>
             ))}

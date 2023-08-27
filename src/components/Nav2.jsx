@@ -64,7 +64,7 @@ export default function Nav2() {
             href="#"
             variant="flat"
           >
-            <Link href="#" className="hover:text-yellow-300 font-semibold">
+            <Link href="/login" className="hover:text-yellow-300 font-semibold">
               Login
             </Link>
           </Button>
@@ -73,7 +73,7 @@ export default function Nav2() {
           <Button
             as={Link}
             className="hover:text-yellow-300 font-semibold"
-            href="#"
+            href="/register"
             variant="flat"
           >
             <UserIcon className="h-4 w-4 " /> Sign Up

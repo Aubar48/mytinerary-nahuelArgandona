@@ -1,5 +1,4 @@
-import * as React from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import { NextUIProvider } from "@nextui-org/react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Home } from "./components/Home";
 import { MainLayout } from "./layouts/MainLayout";
@@ -7,6 +6,8 @@ import { HomeCities } from "./components/HomeCities";
 
 import "./App.css";
 import { DetailsCity } from "./components/DetailsCity";
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
 import { Component404 } from "./components/Component404";
 
 function App() {
@@ -25,12 +26,20 @@ function App() {
         },
         {
           path: "/cities/:id",
-          element:<DetailsCity/>
+          element: <DetailsCity />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
         },
         {
           path: "*",
-          element:<Component404/>
-        }
+          element: <Component404 />,
+        },
       ],
     },
   ]);
