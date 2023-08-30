@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Input, Button } from "@nextui-org/react";
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
@@ -34,7 +34,6 @@ export const Register = () => {
 
       // Redirige al usuario al "home"
       navigate("/"); // Reemplaza "/" con la URL de tu página principal (el "home")
-
     } catch (error) {
       console.error("Error al crear usuario:", error);
     }
@@ -49,98 +48,101 @@ export const Register = () => {
   };
 
   return (
-    <form
-      id="myForm"
-      className="py-10 min-h-[78.5vh] flex flex-col items-center gap-2"
-    >
-      <Input
-        ref={name}
-        type="text"
-        label="Name"
-        variant="bordered"
-        placeholder="Enter your name"
-        className="max-w-xs"
-      />
-      <Input
-        ref={lastName}
-        type="text"
-        label="Last Name"
-        variant="bordered"
-        placeholder="Enter your last name"
-        className="max-w-xs"
-      />
-      <Input
-        ref={mail}
-        type="email"
-        label="Email"
-        variant="bordered"
-        placeholder="Enter your email"
-        className="max-w-xs"
-      />
-      <Input
-        ref={photo}
-        type="text"
-        label="Photo"
-        variant="bordered"
-        placeholder="Enter link photo online"
-        className="max-w-xs"
-      />
-      <Input
-        ref={password}
-        label="Password"
-        variant="bordered"
-        placeholder="Enter your password"
-        endContent={
-          <button
-            className="focus:outline-none"
-            type="button"
-            onClick={toggleVisibility}
+    <>
+      <div className="bg-slate-500">
+        <div className="flex flex-col justify-center min-h-[78.5vh]">
+          <form
+            id="myForm"
+            className=" flex flex-col items-center gap-4 "
           >
-            {isVisible ? (
-              <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-            ) : (
-              <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-            )}
-          </button>
-        }
-        type={isVisible ? "text" : "password"}
-        className="max-w-xs"
-      />
-      <Input
-        ref={country}
-        type="text"
-        label="Country"
-        variant="bordered"
-        placeholder="Enter your country"
-        className="max-w-xs"
-      />
+            <Input
+              ref={name}
+              type="text"
+              label="Name"
+              placeholder="Enter your name"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+            />
+            <Input
+              ref={lastName}
+              type="text"
+              label="Last Name"
+              placeholder="Enter your last name"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+            />
+            <Input
+              ref={mail}
+              type="email"
+              label="Email"
+              placeholder="Enter your email"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+            />
+            <Input
+              ref={photo}
+              type="text"
+              label="Photo"
+              placeholder="Enter link photo online"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+            />
+            <Input
+              ref={password}
+              label="Password"
+              placeholder="Enter your password"
+              endContent={
+                <button
+                  className="focus:outline-none"
+                  type="button"
+                  onClick={toggleVisibility}
+                >
+                  {isVisible ? (
+                    <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  ) : (
+                    <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  )}
+                </button>
+              }
+              type={isVisible ? "text" : "password"}
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+            />
+            <Input
+              ref={country}
+              type="text"
+              label="Country"
+              placeholder="Enter your country"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+            />
 
-      <div className="flex flex-row items-center gap-5">
-        <Button
-          type="button"
-          radius="full"
-          onClick={handleSignUp}
-          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-        >
-          Sign Up
-        </Button>
+            <div className="flex flex-row items-center gap-5">
+              <Button
+                type="button"
+                radius="full"
+                onClick={handleSignUp}
+                className="font-semibold bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+              >
+                Register
+              </Button>
 
-        <Button
-          type="button"
-          radius="full"
-          onClick={handleReset}
-          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-        >
-          Reset
-        </Button>
+              <Button
+                type="button"
+                radius="full"
+                onClick={handleReset}
+                className="font-semibold bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+              >
+                Reset
+              </Button>
+            </div>
+
+            <p>
+              Already have an account?{"  "}
+              <Link
+                className="font-semibold p-1 rounded-2xl bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+                to="/login"
+              >
+                Sign In
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
-
-      <p>
-        Already have an account?{"  "} 
-        <Link className="p-1 rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg" to="/login">
-          Login
-        </Link>
-      </p>
-    </form>
+    </>
   );
 };

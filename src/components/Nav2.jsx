@@ -15,7 +15,7 @@ import {
 export default function Nav2() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Profile", "Login", "Profile", "Log Out"];
+  const menuItems = ["Profile", "Sign in", "Sign up", "Profile", "Log Out"];
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} className="pt-4 mb-2 py-4 bg-sky-500">
@@ -65,7 +65,7 @@ export default function Nav2() {
             variant="flat"
           >
             <Link href="/login" className="hover:text-yellow-300 font-semibold">
-              Login
+            Sign in
             </Link>
           </Button>
         </NavbarItem>

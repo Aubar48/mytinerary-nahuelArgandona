@@ -9,8 +9,7 @@ export const Cards = () => {
   useEffect(() => {
     // Realiza una solicitud a tu API utilizando Axios
     // Ajusta la URL de la API según tu configuración
-    axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL 
-    
+    axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL
       .then((response) => setCityData(response.data.response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -20,7 +19,7 @@ export const Cards = () => {
   );
 
   return (
-    <div className="px-2 min-h-[78.5vh]">
+    <div className="px-2 min-h-[78.5vh] text-center">
       <div className="flex justify-center">
         <input
           type="text"
@@ -39,7 +38,7 @@ export const Cards = () => {
           />
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center min-h-[29.1vh]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 justify-center items-center min-h-[29.1vh]">
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
@@ -52,20 +51,16 @@ export const Cards = () => {
                 alt={city.city}
               />
               <div className="absolute bottom-0 text-center w-full">
-                <p className="font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1">
-                  {city.city}
+                <p className="font-bold text-xl bg-amber-600 px-2 py-1 rounded mt-1">
+                  City: {city.city}
                 </p>
               </div>
             </div>
             <div className="flex flex-col justify-between flex-grow">
-              <div className="flex flex-row gap-5 justify-center text-center">
-                <h3 className="font-bold text-lg">{city.country}</h3>
-                {/* Puedes mostrar otras propiedades como population aquí */}
-              </div>
-              <div>
-              <p className="font-bold text-sm px-2">{city.smalldescription}</p>
-              </div>
-                
+              <h3 className="font-bold text-lg">Country: {city.country}</h3>
+              <p className="font-bold text-sm px-2">
+                Small description: {city.smalldescription}
+              </p>
               <NavLink
                 to={"/cities/" + city.city}
                 className="text-lg bg-amber-600 rounded font-bold py-1 px-4 text-center hover:text-yellow-300"
