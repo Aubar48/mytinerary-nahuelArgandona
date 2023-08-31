@@ -31,7 +31,7 @@ export const Banner = () => {
       <Carousel
         showIndicators={false}
         showStatus={false}
-        showArrows={false}
+        showArrows={true}
         showThumbs={false}
         autoPlay={true}
         interval={2000}

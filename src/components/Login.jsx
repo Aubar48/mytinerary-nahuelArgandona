@@ -36,7 +36,7 @@ export const Login = () => {
               type="email"
               label="Email"
               placeholder="Enter your email"
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
 
             <Input
@@ -57,7 +57,7 @@ export const Login = () => {
                 </button>
               }
               type={isVisible ? "text" : "password"}
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
             <Button
               radius="full"

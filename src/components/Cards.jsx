@@ -42,7 +42,7 @@ export const Cards = () => {
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
-            className="xl:min-h-[45vh] min-h-[59vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 flex flex-col"
+            className="xl:min-h-[45vh] min-h-[59vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 flex flex-col hover:border-sky-800"
           >
             <div className="relative h-60">
               <img
@@ -70,6 +70,14 @@ export const Cards = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center items-center">
+        <NavLink
+          to={"/"}
+          className="w-full mt-4 text-lg bg-amber-600 rounded font-bold text-center hover:text-yellow-300"
+        >
+          Back Home
+        </NavLink>
       </div>
     </div>
   );

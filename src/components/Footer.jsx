@@ -31,15 +31,15 @@ export const Footer = () => {
         </p>
       </div>
 
-      <nav className="flex  md:space-x-4 md:text-xl xl:text-2xl mt-4 md:mt-0 xl:pe-44">
+      <nav className="flex  md:space-x-4 text-base mt-4 md:mt-0 xl:pe-44">
         <a
-          className="text-black hover:text-yellow-300 border-solid rounded-xl items-center"
+          className="text-black rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300 border-solid  items-center"
           href="/"
         >
           Home
         </a>
         <a
-          className="text-black  hover:text-yellow-300 rounded-xl items-center"
+          className="text-blue-600 rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300  items-center"
           href="/cities"
         >
           Cities

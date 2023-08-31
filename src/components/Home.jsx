@@ -3,8 +3,10 @@ import { ParentComponents } from "../components/ParentComponents";
 export const Home = () => {
   return (
     <>
-      <Banner />
-      <ParentComponents />
+      <div className="min-h-[78.5vh]">
+        <Banner />
+        <ParentComponents />
+      </div>
     </>
   );
 };

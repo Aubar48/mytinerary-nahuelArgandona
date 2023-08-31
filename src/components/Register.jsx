@@ -60,28 +60,28 @@ export const Register = () => {
               type="text"
               label="Name"
               placeholder="Enter your name"
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
             <Input
               ref={lastName}
               type="text"
               label="Last Name"
               placeholder="Enter your last name"
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
             <Input
               ref={mail}
               type="email"
               label="Email"
               placeholder="Enter your email"
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
             <Input
               ref={photo}
               type="text"
               label="Photo"
               placeholder="Enter link photo online"
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
             <Input
               ref={password}
@@ -101,14 +101,14 @@ export const Register = () => {
                 </button>
               }
               type={isVisible ? "text" : "password"}
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
             <Input
               ref={country}
               type="text"
               label="Country"
               placeholder="Enter your country"
-              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+              className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
 
             <div className="flex flex-row items-center gap-5">

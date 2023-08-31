@@ -56,7 +56,7 @@ export const Carousel2 = () => {
             {cityGroup.map((city) => (
               <div
                 key={city._id}
-                className="relative shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2"
+                className="relative shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2 hover:border-sky-800"
               >
                 <img
                   src={city.photo}
