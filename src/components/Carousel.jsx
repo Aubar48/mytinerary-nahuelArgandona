@@ -38,7 +38,13 @@ export const Carousel2 = () => {
   }
 
   return (
-    <div className="">
+    <div
+      className=""
+      data-aos="fade-left"
+      data-aos-anchor="#example-anchor"
+      data-aos-offset="500"
+      data-aos-duration="2000"
+    >
       <Carousel
         showStatus={false}
         showArrows={true}

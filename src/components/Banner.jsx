@@ -27,7 +27,13 @@ export const Banner = () => {
   }
 
   return (
-    <div className="rounded shadow-amber-400 shadow-md md:mb-1">
+    <div
+      className="rounded shadow-amber-400 shadow-md md:mb-1"
+      data-aos="fade-down"
+      data-aos-anchor="#example-anchor"
+      data-aos-offset="500"
+      data-aos-duration="2000"
+    >
       <Carousel
         showIndicators={false}
         showStatus={false}
@@ -59,6 +65,3 @@ export const Banner = () => {
     </div>
   );
 };
-
-
-

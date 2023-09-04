@@ -30,7 +30,7 @@ export default function Nav2() {
             src="/iconArg.png"
             alt="icon"
           />
-          <p className=" drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
+          <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
             Mytinerary
           </p>
         </NavbarBrand>

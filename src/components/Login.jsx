@@ -28,7 +28,13 @@ export const Login = () => {
   }
   return (
     <>
-      <div className="bg-slate-500">
+      <div
+        className="bg-slate-500"
+        data-aos="fade-down"
+        data-aos-anchor="#example-anchor"
+        data-aos-offset="500"
+        data-aos-duration="2000"
+      >
         <div className="flex flex-col justify-center min-h-[78.5vh] ">
           <form className="flex flex-col items-center gap-5 ">
             <Input

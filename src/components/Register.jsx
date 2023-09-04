@@ -49,12 +49,15 @@ export const Register = () => {
 
   return (
     <>
-      <div className="bg-slate-500">
+      <div
+        className="bg-slate-500"
+        data-aos="fade-down"
+        data-aos-anchor="#example-anchor"
+        data-aos-offset="500"
+        data-aos-duration="2000"
+      >
         <div className="flex flex-col justify-center min-h-[78.5vh]">
-          <form
-            id="myForm"
-            className=" flex flex-col items-center gap-4 "
-          >
+          <form id="myForm" className=" flex flex-col items-center gap-4 ">
             <Input
               ref={name}
               type="text"

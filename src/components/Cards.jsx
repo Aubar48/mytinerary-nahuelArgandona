@@ -9,8 +9,7 @@ export const Cards = () => {
   useEffect(() => {
     // Realiza una solicitud a tu API utilizando Axios
     // Ajusta la URL de la API según tu configuración
-    axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL 
-    
+    axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL
       .then((response) => setCityData(response.data.response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -20,7 +19,13 @@ export const Cards = () => {
   );
 
   return (
-    <div className="px-2 min-h-[78.5vh]">
+    <div
+      className="px-2 min-h-[78.5vh]"
+      data-aos="fade-up"
+      data-aos-anchor="#example-anchor"
+      data-aos-offset="500"
+      data-aos-duration="2000"
+    >
       <div className="flex justify-center">
         <input
           type="text"
@@ -63,9 +68,11 @@ export const Cards = () => {
                 {/* Puedes mostrar otras propiedades como population aquí */}
               </div>
               <div>
-              <p className="font-bold text-sm px-2">{city.smalldescription}</p>
+                <p className="font-bold text-sm px-2">
+                  {city.smalldescription}
+                </p>
               </div>
-                
+
               <NavLink
                 to={"/cities/" + city.city}
                 className="text-lg bg-amber-600 rounded font-bold py-1 px-4 text-center hover:text-yellow-300"
