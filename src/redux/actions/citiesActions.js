@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const getCitiesAsync = createAsyncThunk('getCitiesAsync', async () => {
@@ -10,5 +10,11 @@ const getCitiesAsync = createAsyncThunk('getCitiesAsync', async () => {
     }
 })
 
-export {getCitiesAsync}
+const citiesFilter = createAction('citiesFilter', (search) => {
+    return {
+        payload : search
+    }
+})
+
+export {getCitiesAsync, citiesFilter}
 

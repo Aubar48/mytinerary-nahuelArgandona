@@ -2,28 +2,30 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 // import axios from "axios"; // Importa Axios
 import { useDispatch, useSelector } from "react-redux";
-import { getCitiesAsync } from "../redux/actions/citiesActions.js";
+import { getCitiesAsync, citiesFilter } from "../redux/actions/citiesActions.js";
 
 export const Cards = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
   // const [cityData, setCityData] = useState([]);
   const citiesDispatch = useDispatch();
-  const cityData = useSelector((store) => store.citiesReducer.cities);
+  const filteredCityCards = useSelector((store) => store.citiesReducer.citiesFiltered);
   useEffect(() => {
     // // Realiza una solicitud a tu API utilizando Axios
     // // Ajusta la URL de la API según tu configuración
     // axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL
     //   .then((response) => setCityData(response.data.response))
     //   .catch((error) => console.error("Error fetching data:", error));
-    if(cityData.length === 0){
+    if(filteredCityCards.length === 0){
       citiesDispatch(getCitiesAsync())
     }
     
   }, []);
 
-  const filteredCityCards = cityData.filter((city) =>
-    city.city.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredCityCards = cityData.filter((city) =>
+  //   city.city.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
+
+
 
   return (
     <div className="px-2 min-h-[78.5vh] text-center">
@@ -31,8 +33,9 @@ export const Cards = () => {
         <input
           type="text"
           placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          // value={searchTerm}
+          // onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => citiesDispatch(citiesFilter(e.target.value))}
           className="w-full p-2 rounded-lg mb-4 max-w-[40rem] border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
         />
       </div>

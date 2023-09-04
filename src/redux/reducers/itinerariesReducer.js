@@ -8,7 +8,7 @@ const initialState = {
 const itinerariesReducer = createReducer(initialState,
     (builder) => builder
         .addCase(getItinerariesAsync.fulfilled, (state, action) => {
-            const newState = { ...state, cities: action.payload };
+            const newState = { ...state, itineraries: action.payload };
             return newState
         })
 )

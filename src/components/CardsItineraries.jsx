@@ -1,32 +1,41 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useParams } from "react-router-dom";
 import { CardsActivities } from "./CardsActivities";
+import { getItinerariesAsync } from "../redux/actions/itinerariesActions";
+import { useDispatch, useSelector } from 'react-redux';
 
 export const CardsItineraries = () => {
   const params = useParams();
-  const [infoItinerary, setInfoItinerary] = useState([]);
-  const [noItineraries, setNoItineraries] = useState(false);
+  // const [infoItinerary, setInfoItinerary] = useState([]);
+  // const [noItineraries, setNoItineraries] = useState(false);
+
+
+  const dispatch = useDispatch()
+  const infoItinerary = useSelector(store => store.itinerariesReducer.itineraries )
 
   useEffect(() => {
-    axios(`http://localhost:3000/api/itineraries/city/${params.id}`)
-      .then((response) => {
-        const itinerariesData = response.data.response;
-        if (itinerariesData.length === 0) {
-          setNoItineraries(true);
-        } else {
-          setInfoItinerary(itinerariesData);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setNoItineraries(true);
-      });
+    // axios(`http://localhost:3000/api/itineraries/city/${params.id}`)
+    //   .then((response) => {
+    //     const itinerariesData = response.data.response;
+    //     if (itinerariesData.length === 0) {
+    //       setNoItineraries(true);
+    //     } else {
+    //       setInfoItinerary(itinerariesData);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching data:", error);
+    //     setNoItineraries(true);
+    //   });
+    if(infoItinerary.length === 0){
+      dispatch(getItinerariesAsync(params.id))
+    }
   }, []);
 
   return (
     <>
-      {noItineraries ? (
+      {infoItinerary == "" ? (
         <p className="text-center font-bold text-lg mt-4">
           ¡Sorry, there are no itineraries available for this city!
         </p>
