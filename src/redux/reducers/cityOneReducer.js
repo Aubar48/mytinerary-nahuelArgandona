@@ -1,8 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { cityOneAction } from "../actions/cityOneActions";
+import { cityOneAction } from "../actions/cityOneActions.js";
 
 const initialState = {
-    cityOne:[]
+    cityOne:{}
 }
 
 const cityOneReducered = createReducer(initialState,

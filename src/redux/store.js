@@ -2,7 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import citiesReducer from "./reducers/citiesReducers.js";
 import itinerariesReducer from "./reducers/itinerariesReducer.js";
-import cityOneReducered from './reducers/cityOneReducer';
+import cityOneReducered from './reducers/cityOneReducer.js';
 export default configureStore({
     reducer: {
         citiesReducer,
