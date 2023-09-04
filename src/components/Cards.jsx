@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios"; // Importa Axios
+// import axios from "axios"; // Importa Axios
+import { useDispatch, useSelector } from "react-redux";
+import { getCitiesAsync } from "../redux/actions/citiesActions.js";
 
 export const Cards = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [cityData, setCityData] = useState([]);
-
+  // const [cityData, setCityData] = useState([]);
+  const citiesDispatch = useDispatch();
+  const cityData = useSelector((store) => store.citiesReducer.cities);
   useEffect(() => {
-    // Realiza una solicitud a tu API utilizando Axios
-    // Ajusta la URL de la API según tu configuración
-    axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL
-      .then((response) => setCityData(response.data.response))
-      .catch((error) => console.error("Error fetching data:", error));
+    // // Realiza una solicitud a tu API utilizando Axios
+    // // Ajusta la URL de la API según tu configuración
+    // axios("http://localhost:3000/api/cities") // Asegúrate de usar la URL
+    //   .then((response) => setCityData(response.data.response))
+    //   .catch((error) => console.error("Error fetching data:", error));
+    if(cityData.length === 0){
+      citiesDispatch(getCitiesAsync())
+    }
+    
   }, []);
 
   const filteredCityCards = cityData.filter((city) =>

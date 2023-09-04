@@ -28,7 +28,7 @@ export const CardsItineraries = () => {
     <>
       {noItineraries ? (
         <p className="text-center font-bold text-lg mt-4">
-          ¡Lo siento, no hay itinerarios disponibles para esta ciudad!
+          ¡Sorry, there are no itineraries available for this city!
         </p>
       ) : (
         infoItinerary.map((itinerary) => {
@@ -80,7 +80,7 @@ export const CardsItineraries = () => {
                   </h1>
                 </div>
               </div>
-              <p className="text-lg font-base mt-2">{itinerary.comment}</p>
+              
               <h2 className="text-center font-bold text-lg bg-amber-600 px-2 py-1 rounded m-1 w-full">
                 Activities
               </h2>

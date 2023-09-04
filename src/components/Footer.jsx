@@ -1,5 +1,5 @@
 import { SocialIcon } from "react-social-icons";
-
+import { NavLink } from "react-router-dom";
 export const Footer = () => {
   const socialMedia = [
     {
@@ -19,7 +19,7 @@ export const Footer = () => {
     },
   ];
   return (
-    <div className="flex flex-col md:flex-row items-center md:justify-between bg-sky-500 mt-2 py-4 md:text-xl xl:text-2xl font-bold">
+    <div className="flex flex-col md:flex-row items-center md:justify-around bg-sky-500 mt-2 py-4 md:text-xl xl:text-2xl font-bold">
       <div className="flex items-center">
         <img
           className="w-10 h-auto md:w-10 xl:w-14"
@@ -31,19 +31,19 @@ export const Footer = () => {
         </p>
       </div>
 
-      <nav className="flex  md:space-x-4 text-base mt-4 md:mt-0 xl:pe-44">
-        <a
+      <nav className="flex  md:space-x-4 text-base mt-4 md:mt-0 xl:pe-52">
+        <NavLink
           className="text-black rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300 border-solid  items-center"
-          href="/"
+          to={"/"}
         >
           Home
-        </a>
-        <a
+        </NavLink>
+        <NavLink
           className="text-blue-600 rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300  items-center"
-          href="/cities"
+          to={"/cities"}
         >
           Cities
-        </a>
+        </NavLink>
       </nav>
       <div className="flex gap-2 h-auto">
         {socialMedia.map((url, index) => (

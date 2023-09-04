@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export const Card = () => {
   const [cityData, setCityData] = useState(null);
@@ -30,12 +31,12 @@ export const Card = () => {
             </h2>
            
             <p className="font-semibold text-base">Small description: {cityData.smalldescription}</p>
-            <a
-              href="/cities"
+            <NavLink
+              to={"/cities"}
               className="flex justify-center items-center font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1 hover:text-yellow-300"
             >
               View More
-            </a>
+            </NavLink>
           </div>
         </div>
       )}

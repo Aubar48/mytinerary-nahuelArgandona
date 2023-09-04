@@ -26,7 +26,7 @@ export const CardsActivities = ({ nameItinerary }) => {
     <>
       {noActivities ? (
         <p className="text-center font-bold text-lg mt-4">
-          ¡Lo siento, no hay actividades disponibles para este itinerario!
+          ¡Sorry, there are no activities available for this itinerary!
         </p>
       ) : (
         infoActivity.map((activity) => {
