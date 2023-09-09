@@ -8,7 +8,12 @@ import "./App.css";
 import { DetailsCity } from "./components/DetailsCity";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
+
 import { Component404 } from "./components/Component404";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import user_actions from "./redux/actions/users.js";
+const { signin_token } = user_actions;
 
 function App() {
   const router = createBrowserRouter([
@@ -29,11 +34,11 @@ function App() {
           element: <DetailsCity />,
         },
         {
-          path: "/login",
+          path: "/signin",
           element: <Login />,
         },
         {
-          path: "/register",
+          path: "/signup",
           element: <Register />,
         },
         {
@@ -43,6 +48,13 @@ function App() {
       ],
     },
   ]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      dispatch(signin_token());
+    }
+  }, []);
   return (
     <NextUIProvider>
       <RouterProvider router={router} />

@@ -32,7 +32,7 @@ export const Banner = () => {
       data-aos="fade-down"
       data-aos-anchor="#example-anchor"
       data-aos-offset="500"
-      data-aos-duration="2000"
+      data-aos-duration="1000"
     >
       <Carousel
         showIndicators={false}

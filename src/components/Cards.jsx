@@ -20,7 +20,7 @@ export const Cards = () => {
 
   return (
     <div
-      className="px-2 min-h-[78.5vh]"
+      className="px-2 min-h-[79.4vh] multi_bg_example2 font-serif text-gray-950"
       data-aos="fade-up"
       data-aos-anchor="#example-anchor"
       data-aos-offset="500"
@@ -32,7 +32,7 @@ export const Cards = () => {
           placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-2 rounded-lg mb-4 max-w-[40rem] border-solid border-2 shadow-amber-400 shadow-md border-amber-400"
+          className="w-full p-2 rounded-lg mb-4 max-w-[40rem] border-solid border-2 shadow-amber-400 shadow-md border-amber-400 "
         />
       </div>
       {filteredCityCards.length === 0 && (

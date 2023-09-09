@@ -43,7 +43,7 @@ export const Carousel2 = () => {
       data-aos="fade-left"
       data-aos-anchor="#example-anchor"
       data-aos-offset="500"
-      data-aos-duration="2000"
+      data-aos-duration="1000"
     >
       <Carousel
         showStatus={false}
@@ -69,7 +69,7 @@ export const Carousel2 = () => {
                   alt={city.city}
                   className="w-full h-full rounded object-cover"
                 />
-                <div className="absolute bottom-0 w-full font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-1">
+                <div className="absolute bottom-0 w-full font-bold text-lg text-gray-950 bg-amber-600 px-2 py-1 rounded mt-1 font-serif">
                   <p>{formatFileName(city.city)}</p>
                 </div>
               </div>

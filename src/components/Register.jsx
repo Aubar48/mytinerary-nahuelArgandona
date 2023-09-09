@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate(); // Importante: Utiliza useNavigate para la navegación programática
+  const navigate = useNavigate(); 
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -29,7 +29,7 @@ export const Register = () => {
         country: country.current.value,
       };
 
-      await axios.post("http://localhost:3000/api/users/register", data);
+      await axios.post("http://localhost:3000/api/auth/register", data);
       console.log("Usuario creado exitosamente");
 
       // Redirige al usuario al "home"
@@ -50,14 +50,16 @@ export const Register = () => {
   return (
     <>
       <div
-        className="bg-slate-500"
+        className="multi_bg_example font-serif"
         data-aos="fade-down"
         data-aos-anchor="#example-anchor"
         data-aos-offset="500"
         data-aos-duration="2000"
-      >
-        <div className="flex flex-col justify-center min-h-[78.5vh]">
-          <form id="myForm" className=" flex flex-col items-center gap-4 ">
+      > 
+        <div className="flex flex-col justify-center min-h-[79.4vh]">
+        <marquee  direction="left"><img src="/public/avion.png" height={"300"} width={"300"} alt=""/></marquee> 
+         <marquee  direction="right"><img src="/public/avion_2.png" height={"300"} width={"300"} alt=""/></marquee> 
+          <form id="myForm" className=" flex flex-col items-center gap-3 ">
             <Input
               ref={name}
               type="text"
@@ -134,11 +136,11 @@ export const Register = () => {
               </Button>
             </div>
 
-            <p>
+            <p className="font-semibold">
               Already have an account?{"  "}
               <Link
                 className="font-semibold p-1 rounded-2xl bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                to="/login"
+                to="/signin"
               >
                 Sign In
               </Link>

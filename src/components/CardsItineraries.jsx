@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CardsActivities } from "./CardsActivities";
 import { getItinerariesAsync } from "../redux/actions/itinerariesActions";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
 export const CardsItineraries = () => {
   const params = useParams();
   // const [infoItinerary, setInfoItinerary] = useState([]);
   // const [noItineraries, setNoItineraries] = useState(false);
 
-
-  const dispatch = useDispatch()
-  const infoItinerary = useSelector(store => store.itinerariesReducer.itineraries )
+  const dispatch = useDispatch();
+  const infoItinerary = useSelector(
+    (store) => store.itinerariesReducer.itineraries
+  );
 
   useEffect(() => {
     // axios(`http://localhost:3000/api/itineraries/city/${params.id}`)
@@ -28,8 +29,8 @@ export const CardsItineraries = () => {
     //     console.error("Error fetching data:", error);
     //     setNoItineraries(true);
     //   });
-    if(infoItinerary.length === 0){
-      dispatch(getItinerariesAsync(params.id))
+    if (infoItinerary.length === 0) {
+      dispatch(getItinerariesAsync(params.id));
     }
   }, []);
 
@@ -89,7 +90,7 @@ export const CardsItineraries = () => {
                   </h1>
                 </div>
               </div>
-              
+
               <h2 className="text-center font-bold text-lg bg-amber-600 px-2 py-1 rounded m-1 w-full">
                 Activities
               </h2>

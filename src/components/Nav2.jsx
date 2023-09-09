@@ -1,105 +1,65 @@
-import React from "react";
-import { UserIcon } from "@heroicons/react/24/solid";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@nextui-org/react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Display from "./Display";
+import Label from "./Label";
+import { useSelector, useDispatch } from "react-redux";
+import user_actions from "../redux/actions/users";
+const { signout } = user_actions;
 
-export default function Nav2() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = ["Profile", "Sign in", "Sign up", "Profile", "Log Out"];
-
+export default function NavBar() {
+  const navigate = useNavigate();
+  let [show, setShow] = useState(false);
+  let photo = useSelector((store) => store.users.user?.photo);
+  let dispatch = useDispatch();
+  let options = [
+    { to: "/", title: "Home", show: true },
+    { to: "/cities", title: "Cities", show: true },
+    {
+      to: "/signin",
+      title: "Log In",
+      show: photo ? false : true,
+    },
+    {
+      to: "/profile",
+      title: "Profile",
+      show: photo ? true : false,
+    },
+    {
+      title: "Sign Out",
+      show: photo ? true : false,
+      onClick: () => {
+        dispatch(signout());
+        navigate("/");
+      },
+    },
+  ];
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="pt-4 mb-2 py-4 bg-sky-500">
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+    <header className="h-[87.3px] px-10 mb-1 bg-sky-500 flex justify-start items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-[50px] h-[50px] bg-white p-[5px] rounded-xl cursor-pointer
+        md:hidden"
+        onClick={() => setShow(!show)}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
         />
-        <NavbarBrand>
-          <img
-            className="max-md:w-10 md:w-10 xl:w-16"
-            src="/iconArg.png"
-            alt="icon"
-          />
-          <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
-            Mytinerary
-          </p>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive>
-          <Button as={Link} href="#" variant="flat">
-            <Link color="foreground" href="/" className="hover:text-yellow-300 font-semibold">
-              Home
-            </Link>
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} href="#" variant="flat">
-            <Link
-              href="/cities"
-              aria-current="page"
-              className="hover:text-yellow-300 font-semibold"
-            >
-              Cities
-            </Link>
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex ">
-          <Button
-            as={Link}
-            className="hover:text-yellow-300"
-            href="#"
-            variant="flat"
-          >
-            <Link href="/login" className="hover:text-yellow-300 font-semibold">
-            Sign in
-            </Link>
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={Link}
-            className="hover:text-yellow-300 font-semibold"
-            href="/register"
-            variant="flat"
-          >
-            <UserIcon className="h-4 w-4 " /> Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+      </svg>
+      {/* {show ? <Display options={options}/> : null} */} {/* if else */}
+      {show && <Display options={options} />} {/* if */}
+      <div className="w-full flex justify-between items-center">
+      <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
+          Mytinerary
+        </p>
+        
+        <Label options={options} />
+      </div>
+    </header>
   );
 }

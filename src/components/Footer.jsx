@@ -19,27 +19,31 @@ export const Footer = () => {
     },
   ];
   return (
-    <div className="md:gap-14 flex flex-col md:flex-row items-center md:justify-evenly bg-sky-500 py-4 md:text-xl xl:text-2xl font-bold">
+    <div className="mt-1 flex flex-col md:flex-row items-center md:justify-evenly bg-sky-500 py-7 md:text-xl xl:text-2xl font-bold">
       <div className="flex items-center">
-        <img
-          className="max-md:w-10 md:w-10 xl:w-16"
-          src="/iconArg.png"
-          alt="icon"
-        />
         <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
           Mytinerary
         </p>
+        <img
+          className="max-md:w-10 md:w-10 xl:w-16"
+          src="/Bandera_Argentina.jpg"
+          alt="icon"
+          data-aos="fade-down"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="400"
+          data-aos-duration="2000"
+        />
       </div>
 
-      <nav className="flex md:space-x-4 text-base mt-4 md:mt-0">
+      <nav className="flex md:space-x-4 text-base mt-4 md:mt-0 max-sm:gap-2 max-sm:py-2 max-xl:mr-10 xl:mr-36 font-serif">
         <NavLink
-          className="text-black rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300 border-solid  items-center"
+          className="text-black rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300 border-solid items-center "
           to={"/"}
         >
           Home
         </NavLink>
         <NavLink
-          className="text-blue-600 rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300  items-center"
+          className="text-blue-600 rounded-xl py-2 px-4 bg-sky-400 hover:text-yellow-300 items-center "
           to={"/cities"}
         >
           Cities
