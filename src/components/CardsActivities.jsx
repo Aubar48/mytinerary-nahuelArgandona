@@ -31,11 +31,11 @@ export const CardsActivities = ({ nameItinerary }) => {
       ) : (
         infoActivity.map((activity) => {
           return (
-            <div key={activity._id} className="flex flex-col items-center px-4">
+            <div key={activity._id} className="flex flex-col items-center">
               <img
                 src={activity.photo}
                 alt={activity.name}
-                className="w-96 h-32 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
+                className="w-80 h-32 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
               />
               <h1 className="font-bold text-lg font-serif">
                 {activity.name}
