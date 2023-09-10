@@ -21,17 +21,6 @@ export const Carousel2 = () => {
       });
   }, []);
 
-  // Helper function to remove file extension
-  const removeExtension = (filename) => {
-    return filename.split(".")[0];
-  };
-
-  // Helper function to remove file extension and replace underscores with spaces
-  const formatFileName = (filename) => {
-    return removeExtension(filename).replace(/_/g, " ");
-  };
-
-  // Split the cityGroupCarousel into arrays of 4 items each
   const chunkedCityGroups = [];
   for (let i = 0; i < cityGroupCarousel.length; i += 4) {
     chunkedCityGroups.push(cityGroupCarousel.slice(i, i + 4));
@@ -70,7 +59,7 @@ export const Carousel2 = () => {
                   className="w-full h-full rounded object-cover"
                 />
                 <div className="absolute bottom-0 w-full font-bold text-lg text-gray-950 bg-amber-600 px-2 py-1 rounded mt-1 font-serif">
-                  <p>{formatFileName(city.city)}</p>
+                  <p>{city.city}</p>
                 </div>
               </div>
             ))}

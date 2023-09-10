@@ -25,8 +25,8 @@ export const Footer = () => {
           Mytinerary
         </p>
         <img
-          className="max-md:w-10 md:w-10 xl:w-16"
-          src="/Bandera_Argentina.jpg"
+          className="max-md:w-10 md:w-10 xl:w-10"
+          src="/logo.png"
           alt="icon"
           data-aos="fade-down"
           data-aos-anchor="#example-anchor"

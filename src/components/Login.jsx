@@ -13,7 +13,7 @@ export const Login = () => {
   const password_signin = useRef("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isVisible, setIsVisible] = useState(false); // Estado para controlar la visibilidad de la contraseña
+  const [isVisible, setIsVisible] = useState(false);
 
   async function handleSignIn() {
     let data = {
@@ -36,7 +36,8 @@ export const Login = () => {
         data-aos-offset="500"
         data-aos-duration="2000"
       >
-        <div className="flex flex-col justify-center min-h-[79.4vh] ">
+        <div className="relative flex flex-col justify-center min-h-[79.4vh] ">
+        <img className="p-5 absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/logo.png" height={"300"} width={"300"} alt="" />
           <marquee direction="left">
             <img src="/public/avion.png" height={"300"} width={"300"} alt="" />
           </marquee>

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link as Anchor } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Avatar} from "@nextui-org/react";
 
 export default function Label({ options }) {
   let photo = useSelector((store) => store.users.user?.photo);
@@ -37,9 +38,12 @@ export default function Label({ options }) {
             )
       )}
       {photo && (
-        <img
-          src={photo}
+        <Avatar
+          isBordered
+          radius="sm"
+          color="secondary"
           className="h-[50px] w-[50px] object-cover bg-white rounded-xl mx-1 hidden lg:flex"
+          src={photo}
         />
       )}
     </div>

@@ -22,7 +22,7 @@ export default function NavBar() {
     {
       to: "/signup",
       title: "Sign Up",
-      show: photo ? false : true
+      show: photo ? false : true,
     },
     {
       to: "/profile",
@@ -64,10 +64,10 @@ export default function NavBar() {
             Mytinerary
           </p>
           <img
-            className="max-md:w-10 md:w-10 xl:w-16"
-            src="/Bandera_Argentina.jpg"
+            className="max-md:w-10 md:w-10 xl:w-20"
+            src="/logo.png"
             alt="icon"
-            data-aos="fade-down"
+            data-aos="fade-up"
             data-aos-anchor="#example-anchor"
             data-aos-offset="400"
             data-aos-duration="2000"

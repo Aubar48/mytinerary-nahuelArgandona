@@ -20,22 +20,24 @@ export const Card = () => {
       data-aos-duration="1000"
     >
       {cityData && (
-        <div className="flex sm max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2 hover:border-sky-800  ">
-          <img
-            className="object-cover max-md:w-1/4 max-md:h-auto md:w-1/2 rounded-lg"
-            src={cityData.photo}
-            alt={cityData.city}
-          />
+        <div className="flex max-md:mt-2 max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2 hover:border-sky-800  ">
           <div className="flex flex-col max-md:justify-center md:justify-between">
-            <h1 className="font-bold text-2xl ">
-              City: {cityData.city}
-            </h1>
-            <h2 className="font-bold text-lg ">
-              Country: {cityData.country}
-            </h2>
+            <img
+              className="object-cover h-48 w-auto  rounded-lg"
+              src={cityData.photo}
+              alt={cityData.city}
+            />
+            <div className="flex justify-center gap-2">
+              <h1 className="font-bold max-md:text-sm text-xl ">
+                {cityData.city}
+              </h1>
+              <h2 className="font-bold max-md:text-sm text-xl ">
+                {cityData.country}
+              </h2>
+            </div>
 
-            <p className="font-semibold text-base ">
-              Small description: {cityData.smalldescription}
+            <p className="font-medium text-base ">
+              {cityData.smalldescription}
             </p>
             <NavLink
               to={"/cities"}

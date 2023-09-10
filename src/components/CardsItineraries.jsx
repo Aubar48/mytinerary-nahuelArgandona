@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import axios from "axios";
 import { useParams } from "react-router-dom";
 import { CardsActivities } from "./CardsActivities";
@@ -8,8 +8,6 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 
 export const CardsItineraries = () => {
   const params = useParams();
-  // const [infoItinerary, setInfoItinerary] = useState([]);
-  // const [noItineraries, setNoItineraries] = useState(false);
 
   const dispatch = useDispatch();
   const infoItinerary = useSelector(
@@ -17,19 +15,6 @@ export const CardsItineraries = () => {
   );
 
   useEffect(() => {
-    // axios(`http://localhost:3000/api/itineraries/city/${params.id}`)
-    //   .then((response) => {
-    //     const itinerariesData = response.data.response;
-    //     if (itinerariesData.length === 0) {
-    //       setNoItineraries(true);
-    //     } else {
-    //       setInfoItinerary(itinerariesData);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching data:", error);
-    //     setNoItineraries(true);
-    //   });
     if (infoItinerary.length === 0) {
       dispatch(getItinerariesAsync(params.id));
     }

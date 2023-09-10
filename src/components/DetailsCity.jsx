@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
+
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CardsItineraries } from "./CardsItineraries";
@@ -8,13 +8,11 @@ import { cityOneAction } from "../redux/actions/cityOneActions.js";
 
 export const DetailsCity = () => {
   const params = useParams();
-  // const [infoCity, setInfoCity] = useState({});
+  
   const dispatch=useDispatch()
   const infoCity = useSelector(store => store.cityOneReducered.cityOne)
   useEffect(() => {
-    // axios(`http://localhost:3000/api/cities/${params.id}`)
-    //   .then((response) => setInfoCity(response.data.response))
-    //   .catch((error) => console.error("Error fetching data:", error));
+   
     dispatch(cityOneAction(params.id))
   }, []);
 

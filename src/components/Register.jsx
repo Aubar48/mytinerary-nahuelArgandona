@@ -4,10 +4,11 @@ import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
+import { Select, SelectItem } from "@nextui-org/react";
+import { countries } from "./data";
 export const Register = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -31,19 +32,14 @@ export const Register = () => {
 
       await axios.post("http://localhost:3000/api/auth/register", data);
       console.log("Usuario creado exitosamente");
-
-      // Redirige al usuario al "home"
-      navigate("/"); // Reemplaza "/" con la URL de tu página principal (el "home")
+      navigate("/"); 
     } catch (error) {
       console.error("Error al crear usuario:", error);
     }
   }
 
   const handleReset = () => {
-    // Obtén una referencia al formulario
-    const form = document.getElementById("myForm"); // Reemplaza 'myForm' con el ID de tu formulario
-
-    // Restablece el formulario
+    const form = document.getElementById("myForm");
     form.reset();
   };
 
@@ -55,10 +51,20 @@ export const Register = () => {
         data-aos-anchor="#example-anchor"
         data-aos-offset="500"
         data-aos-duration="2000"
-      > 
-        <div className="flex flex-col justify-center min-h-[79.4vh]">
-        <marquee  direction="left"><img src="/public/avion.png" height={"300"} width={"300"} alt=""/></marquee> 
-         <marquee  direction="right"><img src="/public/avion_2.png" height={"300"} width={"300"} alt=""/></marquee> 
+      >
+        <div className="relative flex flex-col justify-center min-h-[79.4vh]">
+        <img className="p-5 absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/logo.png" height={"300"} width={"300"} alt="" />
+          <marquee direction="left">
+            <img src="/public/avion.png" height={"300"} width={"300"} alt="" />
+          </marquee>
+          <marquee direction="right">
+            <img
+              src="/public/avion_2.png"
+              height={"300"}
+              width={"300"}
+              alt=""
+            />
+          </marquee>
           <form id="myForm" className=" flex flex-col items-center gap-3 ">
             <Input
               ref={name}
@@ -108,13 +114,16 @@ export const Register = () => {
               type={isVisible ? "text" : "password"}
               className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
-            <Input
-              ref={country}
-              type="text"
+            <Select
+              items={countries}
               label="Country"
-              placeholder="Enter your country"
+              placeholder="Select an country"
               className="max-w-xs rounded-2xl border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
-            />
+            >
+              {(countries) => (
+                <SelectItem key={countries.value}>{countries.label}</SelectItem>
+              )}
+            </Select>
 
             <div className="flex flex-row items-center gap-5">
               <Button
