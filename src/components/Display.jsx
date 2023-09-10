@@ -11,7 +11,7 @@ export default function Display({ options }) {
               <Anchor
                 key={each.to}
                 to={each.to}
-                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1"
+                className="h-[50px] text-[20px] hover:text-yellow-300 focus:bg-sky-700  px-2 bg-white hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer"
               >
                 {each.title}
               </Anchor>
@@ -19,7 +19,7 @@ export default function Display({ options }) {
               <Anchor
                 key={each.to}
                 to={each.to}
-                className="h-[50px] text-[20px] px-2 bg-white hover:bg-hover rounded-xl w-[100px] flex justify-center items-center mx-1"
+                className="h-[50px] text-[20px] hover:text-yellow-300 focus:bg-sky-700 px-2 bg-white hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer"
               >
                 {each.title}
               </Anchor>
@@ -29,7 +29,7 @@ export default function Display({ options }) {
                 key={each.title}
                 onClick={each.onClick}
                 style={{ backgroundColor: { hover: each.hover } }}
-                className="h-[50px] text-[20px] px-2 bg-primary hover:bg-secondary text-white rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer"
+                className="h-[50px] text-[20px] hover:text-yellow-300 focus:bg-sky-700 px-2 bg-white hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer"
               >
                 {each.title}
               </span>

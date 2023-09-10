@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link as Anchor } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Avatar} from "@nextui-org/react";
+import { Avatar } from "@nextui-org/react";
 
 export default function Label({ options }) {
   let photo = useSelector((store) => store.users.user?.photo);
@@ -14,7 +14,7 @@ export default function Label({ options }) {
               <Anchor
                 key={each.to}
                 to={each.to}
-                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 "
+                className="h-[50px] text-[20px] hover:text-yellow-300 focus:bg-sky-700 px-2 bg-white hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 "
               >
                 {each.title}
               </Anchor>
@@ -22,7 +22,7 @@ export default function Label({ options }) {
               <Anchor
                 key={each.to}
                 to={each.to}
-                className="h-[50px] text-[20px] px-2 bg-white hover:bg-hover rounded-xl w-[100px] flex justify-center items-center mx-1 font-serif"
+                className="h-[50px] text-[20px] hover:text-yellow-300 focus:bg-sky-700 px-2 bg-white hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 font-serif"
               >
                 {each.title}
               </Anchor>
@@ -31,7 +31,7 @@ export default function Label({ options }) {
               <span
                 key={each.title}
                 onClick={each.onClick}
-                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer font-serif"
+                className="h-[50px] text-[20px] hover:text-yellow-300  focus:bg-sky-700  px-2 bg-white hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer font-serif"
               >
                 {each.title}
               </span>

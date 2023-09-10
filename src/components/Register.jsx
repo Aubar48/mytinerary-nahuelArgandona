@@ -6,6 +6,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Select, SelectItem } from "@nextui-org/react";
 import { countries } from "./data";
+
+
 export const Register = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ export const Register = () => {
 
       await axios.post("http://localhost:3000/api/auth/register", data);
       console.log("Usuario creado exitosamente");
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       console.error("Error al crear usuario:", error);
     }
@@ -53,7 +55,13 @@ export const Register = () => {
         data-aos-duration="2000"
       >
         <div className="relative flex flex-col justify-center min-h-[79.4vh]">
-        <img className="p-5 absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/logo.png" height={"300"} width={"300"} alt="" />
+          <img
+            className="p-5 absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            src="/logo.png"
+            height={"300"}
+            width={"300"}
+            alt=""
+          />
           <marquee direction="left">
             <img src="/public/avion.png" height={"300"} width={"300"} alt="" />
           </marquee>
@@ -65,6 +73,7 @@ export const Register = () => {
               alt=""
             />
           </marquee>
+
           <form id="myForm" className=" flex flex-col items-center gap-3 ">
             <Input
               ref={name}
