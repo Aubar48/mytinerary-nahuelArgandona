@@ -2,12 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import apiUrl from "../../apiUrl.js";
 
-const read_6_users = createAsyncThunk(
-    'read_6_users',
+const read = createAsyncThunk(
+    'read',
     async () => {
         try {
             let users = await axios(apiUrl + 'users')
-            //console.log(users);
+            
             return {
                 users: users.data.response
             }
@@ -88,5 +88,5 @@ const signout = createAsyncThunk(
     }
 )
 
-const user_actions = { read_6_users, signin, signin_token, signout }
+const user_actions = { read, signin, signin_token, signout }
 export default user_actions

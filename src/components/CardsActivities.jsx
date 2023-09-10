@@ -35,9 +35,9 @@ export const CardsActivities = ({ nameItinerary }) => {
               <img
                 src={activity.photo}
                 alt={activity.name}
-                className="w-96 h-60 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
+                className="w-96 h-32 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
               />
-              <h1 className="font-bold text-lg bg-amber-600 px-2 py-1 rounded mt-2">
+              <h1 className="font-bold text-lg font-serif">
                 {activity.name}
               </h1>
             </div>

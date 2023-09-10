@@ -26,7 +26,7 @@ export const Cards = () => {
       data-aos-offset="500"
       data-aos-duration="2000"
     >
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-2 ">
         <input
           type="text"
           placeholder="Search..."

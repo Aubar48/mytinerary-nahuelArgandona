@@ -39,8 +39,8 @@ export const Carousel2 = () => {
 
   return (
     <div
-      className=""
-      data-aos="fade-left"
+      className="px-10"
+      data-aos="fade-right"
       data-aos-anchor="#example-anchor"
       data-aos-offset="500"
       data-aos-duration="1000"

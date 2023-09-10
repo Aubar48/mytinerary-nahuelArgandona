@@ -22,7 +22,7 @@ export const DetailsCity = () => {
     <>
       <div
         className="px-2 min-h-[79.4vh] flex flex-col items-center multi_bg_example2 font-serif text-gray-950"
-        data-aos="fade-down"
+        data-aos="fade-up"
         data-aos-anchor="#example-anchor"
         data-aos-offset="500"
         data-aos-duration="2000"

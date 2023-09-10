@@ -16,8 +16,13 @@ export default function NavBar() {
     { to: "/cities", title: "Cities", show: true },
     {
       to: "/signin",
-      title: "Log In",
+      title: "Sign In",
       show: photo ? false : true,
+    },
+    {
+      to: "/signup",
+      title: "Sign Up",
+      show: photo ? false : true
     },
     {
       to: "/profile",
@@ -51,13 +56,24 @@ export default function NavBar() {
           d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
         />
       </svg>
-      {/* {show ? <Display options={options}/> : null} */} {/* if else */}
-      {show && <Display options={options} />} {/* if */}
+
+      {show && <Display options={options} />}
       <div className="w-full flex justify-between items-center">
-      <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
-          Mytinerary
-        </p>
-        
+        <div className="flex items-center">
+          <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
+            Mytinerary
+          </p>
+          <img
+            className="max-md:w-10 md:w-10 xl:w-16"
+            src="/Bandera_Argentina.jpg"
+            alt="icon"
+            data-aos="fade-down"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="400"
+            data-aos-duration="2000"
+          />
+        </div>
+
         <Label options={options} />
       </div>
     </header>

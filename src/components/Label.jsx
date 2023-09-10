@@ -13,7 +13,7 @@ export default function Label({ options }) {
               <Anchor
                 key={each.to}
                 to={each.to}
-                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1"
+                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 "
               >
                 {each.title}
               </Anchor>
@@ -21,7 +21,7 @@ export default function Label({ options }) {
               <Anchor
                 key={each.to}
                 to={each.to}
-                className="h-[50px] text-[20px] px-2 bg-white hover:bg-hover rounded-xl w-[100px] flex justify-center items-center mx-1"
+                className="h-[50px] text-[20px] px-2 bg-white hover:bg-hover rounded-xl w-[100px] flex justify-center items-center mx-1 font-serif"
               >
                 {each.title}
               </Anchor>
@@ -30,7 +30,7 @@ export default function Label({ options }) {
               <span
                 key={each.title}
                 onClick={each.onClick}
-                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer"
+                className="h-[50px] text-[20px] text-white px-2 bg-primary hover:bg-secondary rounded-xl w-[100px] flex justify-center items-center mx-1 cursor-pointer font-serif"
               >
                 {each.title}
               </span>

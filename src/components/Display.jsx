@@ -3,7 +3,7 @@ import { Link as Anchor } from "react-router-dom";
 
 export default function Display({ options }) {
   return (
-    <div className="flex ms-5 absolute top-[70px] left-[70px] gap-2 flex-col bg-tertiary p-2 rounded-xl">
+    <div className="flex ms-5 absolute z-50 top-[70px] left-[70px] gap-2 flex-col bg-tertiary p-2 rounded-xl">
       {options.map((each) =>
         each.to
           ? each.show &&

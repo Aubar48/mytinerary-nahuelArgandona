@@ -28,8 +28,8 @@ export const Banner = () => {
 
   return (
     <div
-      className="rounded shadow-amber-400 shadow-md md:mb-1"
-      data-aos="fade-down"
+      className="rounded md:mb-1 shadow-amber-400 shadow-md"
+      data-aos="fade-up"
       data-aos-anchor="#example-anchor"
       data-aos-offset="500"
       data-aos-duration="1000"
@@ -54,7 +54,7 @@ export const Banner = () => {
                   <img
                     src={carouselItem.photo}
                     alt={carouselItem.city}
-                    className="w-full h-48 md:h-72 object-cover rounded"
+                    className="w-full h-48 md:h-72 object-cover rounded "
                   />
                 </div>
               ))}

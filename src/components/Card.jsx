@@ -13,10 +13,10 @@ export const Card = () => {
 
   return (
     <div
-      className="text-center font-serif text-gray-950"
-      data-aos="fade-right"
+      className="text-center font-serif text-gray-950 px-10"
+      data-aos="fade-left"
       data-aos-anchor="#example-anchor"
-      data-aos-offset="500"
+      data-aos-offset="50"
       data-aos-duration="1000"
     >
       {cityData && (

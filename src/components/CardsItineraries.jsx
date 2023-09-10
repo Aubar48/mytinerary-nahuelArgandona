@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { CardsActivities } from "./CardsActivities";
 import { getItinerariesAsync } from "../redux/actions/itinerariesActions";
 import { useDispatch, useSelector } from "react-redux";
+import { Accordion, AccordionItem } from "@nextui-org/react";
 
 export const CardsItineraries = () => {
   const params = useParams();
@@ -90,13 +91,16 @@ export const CardsItineraries = () => {
                   </h1>
                 </div>
               </div>
-
-              <h2 className="text-center font-bold text-lg bg-amber-600 px-2 py-1 rounded m-1 w-full">
-                Activities
-              </h2>
-              <div className="flex max-md:flex-col">
-                <CardsActivities nameItinerary={itinerary.name} />
-              </div>
+              <Accordion>
+                <AccordionItem
+                  key="1"
+                  aria-label="Accordion 1"
+                  title="Activities"
+                  className="flex flex-col items-center font-bold text-lg bg-amber-600 rounded mt-2"
+                >
+                  <CardsActivities nameItinerary={itinerary.name} />
+                </AccordionItem>
+              </Accordion>
             </div>
           );
         })
