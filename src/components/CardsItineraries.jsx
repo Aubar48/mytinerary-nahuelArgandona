@@ -18,6 +18,7 @@ export const CardsItineraries = () => {
     if (infoItinerary.length === 0) {
       dispatch(getItinerariesAsync(params.id));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

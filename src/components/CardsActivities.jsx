@@ -20,6 +20,7 @@ export const CardsActivities = ({ nameItinerary }) => {
         console.error("Error fetching data:", error);
         setNoActivities(true);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
