@@ -8,11 +8,11 @@ import "./App.css";
 import { DetailsCity } from "./components/DetailsCity";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
-
 import { Component404 } from "./components/Component404";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import user_actions from "./redux/actions/users.js";
+import Profile from "./components/Profile";
 const { signin_token } = user_actions;
 
 function App() {
@@ -40,6 +40,10 @@ function App() {
         {
           path: "/signup",
           element: <Register />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
         },
         {
           path: "*",

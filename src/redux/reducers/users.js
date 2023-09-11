@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import user_actions from "../actions/users.js";
-const { read, signin, signin_token, signout, signup } = user_actions
+const { read_user, read_users, signin, signin_token, signout, signup, update_user } = user_actions
 
 const initial_state = {
     users: [],
@@ -11,8 +11,18 @@ const initial_state = {
 
 const user_reducer = createReducer(
     initial_state,
-    build => build.addCase(
-        read.fulfilled,
+    build => build.addCase(     //callback contructora de estados globales (agrega (mín) un caso de reduccion para cada accion)
+        read_user.fulfilled,    //accion a reducir
+        (state, action) => {          //callback que depende del estado y la accion y es la encargada de reducir los estados
+            let new_state = {
+                ...state,           //a la copia del estado tengo que "llenarle" la propiedad carousel con los datos que me envía la accion
+                userItineraries: action.payload.userItineraries
+
+            }
+            return new_state        //retorno el nuevo estado para que se actualice la vista
+        }
+    ).addCase(
+        read_users.fulfilled,
         (state, action) => {
             let new_state = {
                 ...state,
@@ -60,6 +70,15 @@ const user_reducer = createReducer(
                 user: action.payload.user,
                 token: action.payload.token,
                 messages: action.payload.messages
+            }
+            return new_state
+        }
+    ).addCase(
+        update_user.fulfilled,
+        (state, action) => {
+            let new_state = {
+                ...state,
+                user: action.payload.user
             }
             return new_state
         }
