@@ -7,7 +7,7 @@ const read = createAsyncThunk(
     async () => {
         try {
             let users = await axios(apiUrl + 'users')
-            
+
             return {
                 users: users.data.response
             }
@@ -30,13 +30,15 @@ const signin = createAsyncThunk(
             localStorage.setItem('token', data.data.response.token)
             return {
                 user: data.data.response.user,
-                token: data.data.response.token
+                token: data.data.response.token,
+                messages: []
             }
         } catch (error) {
             console.log(error);
             return {
                 user: {},
-                token: ''
+                token: '',
+                messages: error.response.data.messages || [error.response.data.message]
             }
         }
     }
@@ -53,13 +55,15 @@ const signin_token = createAsyncThunk(
             localStorage.setItem('token', data.data.response.token)
             return {
                 user: data.data.response.user,
-                token: data.data.response.token
+                token: data.data.response.token,
+                messages: []
             }
         } catch (error) {
             console.log(error);
             return {
                 user: {},
-                token: ''
+                token: '',
+                messages: error.response.data.messages || [error.response.data.message]
             }
         }
     }
@@ -88,5 +92,28 @@ const signout = createAsyncThunk(
     }
 )
 
-const user_actions = { read, signin, signin_token, signout }
+const signup = createAsyncThunk(
+    'signup',
+    async (obj) => {
+        try {
+            
+            const response = await axios.post(apiUrl + 'auth/register', obj.data);
+
+            return {
+                user: response.data.response.user,
+                token: response.data.response.token,
+                messages: [],
+            };
+        } catch (error) {
+            console.log(error);
+            return {
+                user: {},
+                token: '',
+                messages: error.response.data.messages || [error.response.data.message],
+            };
+        }
+    }
+);
+
+const user_actions = { read, signin, signin_token, signout, signup }
 export default user_actions

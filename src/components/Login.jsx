@@ -4,10 +4,13 @@ import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import { Button } from "@nextui-org/react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import user_actions from "../redux/actions/users.js";
 const { signin } = user_actions;
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
+import Swal from "sweetalert2";
 export const Login = () => {
   const mail_signin = useRef("");
   const password_signin = useRef("");
@@ -18,15 +21,28 @@ export const Login = () => {
   async function handleSignIn() {
     let data = {
       mail: mail_signin.current.value,
-      password: password_signin.current.value,
+      password: password_signin.current.value
     };
-    dispatch(signin({ data }));
-    navigate("/");
+    dispatch(signin({ data }))
+      .then((res) => {
+        if (res.payload.token) {
+          Swal.fire({
+            icon: "success",
+            title: "Logged in!",
+          });
+          navigate("/");
+        } else if (res.payload.messages.length > 0) {
+          let html = res.payload.messages.map((each) => `<p>${each}</p>`).join("");
+          Swal.fire({
+            title: "Something went wrong!",
+            icon: "error",
+            html,
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   }
-
-  let user = useSelector((store) => store);
-  console.log(user);
-
+      
   return (
     <>
       <div
@@ -37,7 +53,13 @@ export const Login = () => {
         data-aos-duration="2000"
       >
         <div className="relative flex flex-col justify-center min-h-[79.4vh] ">
-        <img className="p-5 absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/logo.png" height={"300"} width={"300"} alt="" />
+          <img
+            className="p-5 absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            src="/logo.png"
+            height={"300"}
+            width={"300"}
+            alt=""
+          />
           <marquee direction="left">
             <img src="/public/avion.png" height={"300"} width={"300"} alt="" />
           </marquee>
@@ -49,6 +71,22 @@ export const Login = () => {
               alt=""
             />
           </marquee>
+
+          <div className="flex justify-center mb-1">
+            <GoogleOAuthProvider clientId="556361593309-273209v1049174bi15mjlnqui3fae8s9.apps.googleusercontent.com">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                  const infoUser = jwtDecode(credentialResponse.credential);
+                  console.log(infoUser);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </GoogleOAuthProvider>
+          </div>
+
           <form className="flex flex-col items-center gap-3">
             <Input
               ref={mail_signin}
