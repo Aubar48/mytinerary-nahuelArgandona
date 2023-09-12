@@ -7,10 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import user_actions from "../redux/actions/users.js";
 const { signin } = user_actions;
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
-import jwtDecode from "jwt-decode";
 import Swal from "sweetalert2";
+import Google from "../components/Google";
 export const Login = () => {
   const mail_signin = useRef("");
   const password_signin = useRef("");
@@ -75,18 +73,7 @@ export const Login = () => {
           </marquee>
 
           <div className="flex justify-center mb-1">
-            <GoogleOAuthProvider clientId="556361593309-273209v1049174bi15mjlnqui3fae8s9.apps.googleusercontent.com">
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  console.log(credentialResponse);
-                  const infoUser = jwtDecode(credentialResponse.credential);
-                  console.log(infoUser);
-                }}
-                onError={() => {
-                  console.log("Login Failed");
-                }}
-              />
-            </GoogleOAuthProvider>
+            <Google />
           </div>
 
           <form className="flex flex-col items-center gap-3">

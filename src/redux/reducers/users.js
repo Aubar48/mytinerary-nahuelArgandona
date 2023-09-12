@@ -3,6 +3,7 @@ import user_actions from "../actions/users.js";
 const { read_user, read_users, signin, signin_token, signout, signup, update_user } = user_actions
 
 const initial_state = {
+    userItineraries:{},
     users: [],
     user: {},
     token: '',

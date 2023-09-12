@@ -22,11 +22,9 @@ const read_users = createAsyncThunk(
     async () => {
         try {
             let users = await axios(apiUrl + 'users')
-
             return {
                 users: users.data.response
             }
-
         } catch (error) {
             console.log(error);
             return {

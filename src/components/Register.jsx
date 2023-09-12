@@ -5,10 +5,7 @@ import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import { Link, useNavigate } from "react-router-dom";
 import { Select, SelectItem } from "@nextui-org/react";
 import { countries } from "./data";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
-import jwtDecode from "jwt-decode";
-
+import  Google  from "../components/Google";
 import { useDispatch } from "react-redux";
 import user_actions from "../redux/actions/users.js";
 const { signup } = user_actions;
@@ -92,30 +89,9 @@ export const Register = () => {
 
           <form
             id="myForm"
-            className="relative flex flex-col items-center gap-3 "
+            className="relative flex flex-col items-center gap-2 "
           >
-            <div className=" absolute top-3 right-1/4">
-              <GoogleOAuthProvider clientId="556361593309-273209v1049174bi15mjlnqui3fae8s9.apps.googleusercontent.com">
-                <GoogleLogin
-                  onSuccess={(credentialResponse) => {
-                    console.log(credentialResponse);
-                    const infoUser = jwtDecode(credentialResponse.credential);
-                    console.log(infoUser);
-                    ({
-                      name: name_signup.current.value,
-                      lastName: lastName_signup.current.value,
-                      mail: mail_signup.current.value,
-                      photo: photo_signup.current.value,
-                      password: password_signup.current.value,
-                      country: country_signup.current.value,
-                    });
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-                />
-              </GoogleOAuthProvider>
-            </div>
+              <Google />
             <Input
               ref={name_signup}
               type="text"
