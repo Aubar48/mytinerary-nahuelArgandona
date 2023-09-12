@@ -33,12 +33,29 @@ export default function NavBar() {
       title: "Sign Out",
       show: photo ? true : false,
       onClick: () => {
-        dispatch(signout());
         navigate("/");
+        dispatch(signout())
+          .then((res) => {
+            if (res.payload.messages) {
+              Swal.fire({
+                icon: "success",
+                title: "Logout in!",
+              });
+            } else if (res.payload.messages.length > 0) {
+              let html = res.payload.messages
+                .map((each) => `<p>${each}</p>`)
+                .join("");
+              Swal.fire({
+                title: "Something went wrong!",
+                icon: "error",
+                html,
+              });
+            }
+          })
+          .catch((err) => console.log(err));
       },
     },
   ];
-
 
   return (
     <header className="h-[87.3px] px-10 mb-1 bg-sky-500 flex justify-start items-center">

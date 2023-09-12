@@ -21,7 +21,7 @@ export const Login = () => {
   async function handleSignIn() {
     let data = {
       mail: mail_signin.current.value,
-      password: password_signin.current.value
+      password: password_signin.current.value,
     };
     dispatch(signin({ data }))
       .then((res) => {
@@ -32,7 +32,9 @@ export const Login = () => {
           });
           navigate("/");
         } else if (res.payload.messages.length > 0) {
-          let html = res.payload.messages.map((each) => `<p>${each}</p>`).join("");
+          let html = res.payload.messages
+            .map((each) => `<p>${each}</p>`)
+            .join("");
           Swal.fire({
             title: "Something went wrong!",
             icon: "error",
@@ -42,7 +44,7 @@ export const Login = () => {
       })
       .catch((err) => console.log(err));
   }
-      
+
   return (
     <>
       <div
