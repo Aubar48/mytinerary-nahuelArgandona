@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
@@ -8,13 +8,12 @@ import { cityOneAction } from "../redux/actions/cityOneActions.js";
 
 export const DetailsCity = () => {
   const params = useParams();
-  
-  const dispatch=useDispatch()
-  const infoCity = useSelector(store => store.cityOneReducered.cityOne)
+
+  const dispatch = useDispatch();
+  const infoCity = useSelector((store) => store.cityOneReducered.cityOne);
   useEffect(() => {
-   
-    dispatch(cityOneAction(params.id))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(cityOneAction(params.id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

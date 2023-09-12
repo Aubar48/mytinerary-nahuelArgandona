@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import axios from "axios";
 import { useParams } from "react-router-dom";
 import { CardsActivities } from "./CardsActivities";
@@ -10,6 +10,25 @@ export const CardsItineraries = () => {
   const params = useParams();
 
   const dispatch = useDispatch();
+
+  // Estado para almacenar los comentarios y el comentario nuevo
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+
+  // Función para manejar el cambio en el campo de entrada del comentario
+  const handleCommentChange = (e) => {
+    setNewComment(e.target.value);
+  };
+
+  // Función para manejar el envío del comentario
+  const handleSubmitComment = () => {
+    if (newComment.trim() !== "") {
+      // Agrega el nuevo comentario al array de comentarios
+      setComments([...comments, newComment]);
+      // Limpia el campo de entrada
+      setNewComment("");
+    }
+  };
   const infoItinerary = useSelector(
     (store) => store.itinerariesReducer.itineraries
   );
@@ -18,7 +37,7 @@ export const CardsItineraries = () => {
     if (infoItinerary.length === 0) {
       dispatch(getItinerariesAsync(params.id));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -83,11 +102,32 @@ export const CardsItineraries = () => {
                   key="1"
                   aria-label="Accordion 1"
                   title="Activities"
-                  className="mt-2 flex flex-col items-center font-bold text-lg bg-amber-600 rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
+                  className="w-96 h-auto mt-2 flex flex-col items-center font-bold text-lg bg-amber-600 rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
                 >
                   <CardsActivities nameItinerary={itinerary.name} />
                 </AccordionItem>
               </Accordion>
+              <div className="mt-2 flex flex-col rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800">
+                <ul>
+                  {comments.map((comment, index) => (
+                    <li key={index}>{comment}</li>
+                  ))}
+                </ul>
+                <div className="flex flex-col w-96 h-auto ">
+                  <textarea
+                    placeholder="Agregar un comentario..."
+                    value={newComment}
+                    onChange={handleCommentChange}
+                    className="rounded-md h-24"
+                  ></textarea>
+                  <button
+                    className="font-semibold bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+                    onClick={handleSubmitComment}
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </div>
             </div>
           );
         })

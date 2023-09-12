@@ -36,7 +36,7 @@ export const Register = () => {
     };
     dispatch(signup({ data }))
       .then((res) => {
-        if (res.payload.messages) {
+        if (res.payload.token) {
           Swal.fire({
             icon: "success",
             title: "Register in!",
@@ -101,6 +101,14 @@ export const Register = () => {
                     console.log(credentialResponse);
                     const infoUser = jwtDecode(credentialResponse.credential);
                     console.log(infoUser);
+                    ({
+                      name: name_signup.current.value,
+                      lastName: lastName_signup.current.value,
+                      mail: mail_signup.current.value,
+                      photo: photo_signup.current.value,
+                      password: password_signup.current.value,
+                      country: country_signup.current.value,
+                    });
                   }}
                   onError={() => {
                     console.log("Login Failed");

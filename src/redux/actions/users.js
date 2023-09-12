@@ -95,13 +95,15 @@ const signout = createAsyncThunk(
             localStorage.removeItem('token')
             return {
                 user: {},
-                token: ''
+                token: '',
+                messages: [],
             }
         } catch (error) {
             console.log(error);
             return {
                 user: {},
-                token: ''
+                token: '',
+                messages: error.response.data.messages || [error.response.data.message],
             }
         }
     }
@@ -111,8 +113,9 @@ const signup = createAsyncThunk(
     'signup',
     async (obj) => {
         try {
-
-            const response = await axios.post(apiUrl + 'auth/register', obj.data);
+            let token = localStorage.getItem('token')
+            let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
+            const response = await axios.post(apiUrl + 'auth/register', obj.data, null, authorization);
 
             return {
                 user: response.data.response.user,

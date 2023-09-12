@@ -5,7 +5,7 @@ import Label from "./Label";
 import { useSelector, useDispatch } from "react-redux";
 import user_actions from "../redux/actions/users";
 const { signout } = user_actions;
-
+import Swal from "sweetalert2";
 export default function NavBar() {
   const navigate = useNavigate();
   let [show, setShow] = useState(false);
@@ -38,6 +38,8 @@ export default function NavBar() {
       },
     },
   ];
+
+
   return (
     <header className="h-[87.3px] px-10 mb-1 bg-sky-500 flex justify-start items-center">
       <svg

@@ -21,9 +21,6 @@ export const Footer = () => {
   return (
     <>
       <div className=" relative mt-1 flex flex-col md:flex-row items-center md:justify-evenly bg-sky-500 py-7 md:text-xl xl:text-2xl font-bold">
-        <marquee className="absolute bottom-0" direction="left">
-          <img src="/public/autobus.png" height={"300"} width={"300"} alt="" />
-        </marquee>
         <div className="flex items-center">
           <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
             Mytinerary
