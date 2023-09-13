@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
@@ -5,8 +6,8 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import { CardsActivities } from "./CardsActivities";
 import user_actions from "../redux/actions/users";
 const { read_user } = user_actions;
-export const CardItinerary = ({ itinerary }) => {
-  const user = useSelector((store) => store.users.userItineraries);
+export const CardItinerary = ({ itinerary, user }) => {
+  const user1 = useSelector((store) => store.users.userItineraries);
   const dispatch = useDispatch();
 
   // Estado para almacenar los comentarios y el comentario nuevo
@@ -28,13 +29,11 @@ export const CardItinerary = ({ itinerary }) => {
     }
   };
   useEffect(() => {
-    dispatch(read_user({ user_id: itinerary.city_id.admin_id }));
-    console.log(itinerary.city_id.admin_id);
-
+    dispatch(read_user({ user_id: user }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div key={itinerary._id} className="flex flex-col items-center px-2">
+    <div className="flex flex-col items-center px-2">
       <div className="font-bold text-lg bg-amber-600 mt-1 rounded-lg  border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800">
         <div className="relative">
           <img
@@ -67,12 +66,12 @@ export const CardItinerary = ({ itinerary }) => {
         <div>
           <div className="flex justify-center items-end ">
             <img
-              src={itinerary.profilePicture}
-              alt={itinerary.profileName}
+              src={user1.photo}
+              alt={user1.name}
               className="mt-2 w-28 h-28 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
           </div>
-          <h1 className="text-center font-bold text-lg">{itinerary.profileName}</h1>
+          <h1 className="text-center font-bold text-lg">{user1.name}</h1>
         </div>
       </div>
 

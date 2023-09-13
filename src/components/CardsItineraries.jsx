@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 import { getItinerariesAsync } from "../redux/actions/itinerariesActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,16 +8,12 @@ import { CardItinerary } from "./CardItinerary";
 export const CardsItineraries = () => {
   const params = useParams();
   const dispatch = useDispatch();
-
   const infoItinerary = useSelector(
     (store) => store.itinerariesReducer.itineraries
   );
 
   useEffect(() => {
-    if (infoItinerary.length === 0) {
-      dispatch(getItinerariesAsync(params.id));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(getItinerariesAsync(params.id));
   }, []);
 
   return (
@@ -27,7 +24,13 @@ export const CardsItineraries = () => {
         </p>
       ) : (
         infoItinerary.map((itinerary, key) => {
-          return <CardItinerary key={key} itinerary={itinerary} />;
+          return (
+            <CardItinerary
+              key={key}
+              user={infoItinerary[0].city_id.admin_id}
+              itinerary={itinerary}
+            />
+          );
         })
       )}
     </>

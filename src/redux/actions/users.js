@@ -1,14 +1,14 @@
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import apiUrl from "../../apiUrl.js";
 
 const read_user = createAsyncThunk(
     'read_user',
     async ({ user_id }) => {
-        console.log(user_id);  //  i/users/:user_id
+
         try {
             let data = await axios(apiUrl + 'users/' + user_id)
-            console.log('resultado', data);
+
             return { userItineraries: data.data.response }
         } catch (error) {
             console.log(error);
@@ -39,7 +39,7 @@ const signin = createAsyncThunk(
     async (obj) => {
         try {
             let data = await axios.post(apiUrl + 'auth/signin', obj.data)
-            //console.log(data);
+            
             localStorage.setItem('token', data.data.response.token)
             return {
                 user: data.data.response.user,
