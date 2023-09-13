@@ -67,12 +67,12 @@ export const CardItinerary = ({ itinerary }) => {
         <div>
           <div className="flex justify-center items-end ">
             <img
-              src={user.photo}
-              alt={user.name}
+              src={itinerary.profilePicture}
+              alt={itinerary.profileName}
               className="mt-2 w-28 h-28 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
             />
           </div>
-          <h1 className="text-center font-bold text-lg">{user.name}</h1>
+          <h1 className="text-center font-bold text-lg">{itinerary.profileName}</h1>
         </div>
       </div>
 

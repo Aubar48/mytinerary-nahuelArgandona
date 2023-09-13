@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import apiUrl from "../../apiUrl.js";
 
@@ -57,6 +57,28 @@ const signin = createAsyncThunk(
     }
 )
 
+const signinGoogle = createAsyncThunk(
+    'signinGoogle',
+    async (obj) => {
+        try {
+            let data = await axios.post(apiUrl + 'auth/google', obj.data)
+            localStorage.setItem('token', data.data.response.token)
+            return {
+                user: data.data.response.user,
+                token: data.data.response.token,
+                messages: []
+            }
+        } catch (error) {
+            console.log(error);
+            return {
+                user: {},
+                token: '',
+                messages: error.response.data.messages || [error.response.data.message]
+            }
+        }
+    }
+)
+
 const signin_token = createAsyncThunk(
     'signin_token',
     async () => {
@@ -86,10 +108,6 @@ const signout = createAsyncThunk(
     'signout',
     async () => {
         try {
-            let token = localStorage.getItem('token')
-            let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
-            let data = await axios.post(apiUrl + 'auth/signout', null, authorization)
-            console.log(data);
             localStorage.removeItem('token')
             return {
                 user: {},
@@ -114,7 +132,6 @@ const signup = createAsyncThunk(
             let token = localStorage.getItem('token')
             let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
             const response = await axios.post(apiUrl + 'auth/register', obj.data, null, authorization);
-
             return {
                 user: response.data.response.user,
                 token: response.data.response.token,
@@ -138,7 +155,6 @@ const update_user = createAsyncThunk(
             let token = localStorage.getItem('token')
             let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
             let data = await axios.put(apiUrl + 'users', obj.data, authorization)
-            console.log(data);
             return {
                 user: data.data.response
             }
@@ -151,5 +167,5 @@ const update_user = createAsyncThunk(
 
     }
 )
-const user_actions = { read_user, read_users, signin, signin_token, signout, signup, update_user }
+const user_actions = { read_user, read_users, signin, signinGoogle, signin_token, signout, signup, update_user }
 export default user_actions
