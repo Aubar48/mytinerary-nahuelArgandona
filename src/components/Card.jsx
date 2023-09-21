@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-
+import apiUrl from "./../apiUrl";
 export const Card = () => {
   const [cityData, setCityData] = useState(null);
 
   useEffect(() => {
-    axios("http://localhost:3000/api/cities")
+    axios(apiUrl + "/cities")
       .then((response) => setCityData(response.data.response[0]))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);

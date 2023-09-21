@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
-
+import apiUrl from "./../apiUrl";
 export const Carousel2 = () => {
   const [cityGroupCarousel, setCityGroupCarousel] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/cities/carousel")
+      .get(apiUrl + "/cities/carousel")
       .then((response) => {
         if (Array.isArray(response.data.data_carousel)) {
           setCityGroupCarousel(response.data.data_carousel);

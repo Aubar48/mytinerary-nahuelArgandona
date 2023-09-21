@@ -1,9 +1,9 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import apiUrl from "../../apiUrl";
 const getCitiesAsync = createAsyncThunk('getCitiesAsync', async () => {
     try {
-        const res = await axios.get("http://localhost:3000/api/cities")
+        const res = await axios.get(apiUrl + "/cities")
         return res.data.response
     } catch (error) {
         return []
@@ -12,9 +12,9 @@ const getCitiesAsync = createAsyncThunk('getCitiesAsync', async () => {
 
 const citiesFilter = createAction('citiesFilter', (search) => {
     return {
-        payload : search
+        payload: search
     }
 })
 
-export {getCitiesAsync, citiesFilter}
+export { getCitiesAsync, citiesFilter }
 

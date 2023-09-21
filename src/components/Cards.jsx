@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios"; 
-
+import axios from "axios";
+import apiUrl from "./../apiUrl";
 export const Cards = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cityData, setCityData] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:3000/api/cities") 
+    axios(apiUrl + "/cities")
       .then((response) => setCityData(response.data.response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -63,7 +63,6 @@ export const Cards = () => {
             <div className="flex flex-col justify-between flex-grow">
               <div className="flex flex-row gap-5 justify-center text-center">
                 <h3 className="font-bold text-lg">{city.country}</h3>
-            
               </div>
               <div>
                 <p className="font-bold text-sm px-2">
