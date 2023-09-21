@@ -46,7 +46,7 @@ export const Cards = () => {
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
-            className="xl:min-h-[50vh] min-h-[60vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800   flex flex-col"
+            className="xl:min-h-[50vh] min-h-[60vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800 flex flex-col"
           >
             <div className="relative h-60">
               <img

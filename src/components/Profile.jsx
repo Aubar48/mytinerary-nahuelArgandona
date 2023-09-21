@@ -6,7 +6,6 @@ const { update_user } = user_actions;
 
 export default function Profile() {
   const user = useSelector((store) => store.users.user);
-  //console.log(user);
   const name = useRef("");
   const lastName = useRef("");
   const country = useRef("");
@@ -14,6 +13,7 @@ export default function Profile() {
   const password = useRef("");
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
+
   async function handleUpdate() {
     try {
       let data = {};
@@ -32,17 +32,17 @@ export default function Profile() {
       if (password.current.value) {
         data.password = password.current.value;
       }
-      //console.log(data);
       dispatch(update_user({ data }));
     } catch (error) {
       console.log(error);
     }
   }
+
   return (
-    <div className="min-h-[79.4vh] flex flex-col flex-grow items-center justify-center md:flex-row md:justify-evenly">
+    <div className="border-solid min-h-[79.4vh] flex flex-col flex-grow items-center justify-center md:flex-row md:justify-evenly">
       <UserData user={user} show={show} setShow={setShow} />
       {show && (
-        <form className="flex flex-col items-center justify-center p-[20px] w-[360px] h-[400px] bg-red-200 sm:bg-white my-[20px] md:my-0">
+        <form className="font-serif text-gray-950 border-solid border-2 shadow-amber-400 shadow-md border-amber-400 flex flex-col items-center justify-center p-[20px] w-[400px] h-[600px] bg-red-200 sm:bg-white my-[20px] md:my-0">
           <h1 className="text-[36px] font-bold text-center mb-[10px]">
             Update!
           </h1>
