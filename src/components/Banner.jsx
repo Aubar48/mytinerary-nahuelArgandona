@@ -3,13 +3,15 @@ import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import apiUrl from './../apiUrl';
+
 export const Banner = () => {
   const [carouselData, setCarouselData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/cities/carousel")
+      .get(apiUrl +"/cities/carousel")
       .then((response) => {
         setCarouselData(response.data.data_carousel);
         setIsLoading(false);
