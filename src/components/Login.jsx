@@ -61,11 +61,11 @@ export const Login = () => {
             alt=""
           />
           <marquee direction="left">
-            <img src="/public/avion.png" height={"300"} width={"300"} alt="" />
+            <img src="/avion.png" height={"300"} width={"300"} alt="" />
           </marquee>
           <marquee direction="right">
             <img
-              src="/public/avion_2.png"
+              src="/avion_2.png"
               height={"300"}
               width={"300"}
               alt=""
