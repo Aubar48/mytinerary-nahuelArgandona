@@ -3,7 +3,7 @@ import axios from "axios";
 import apiUrl from "../../apiUrl";
 const getItinerariesAsync = createAsyncThunk('getItinerariesAsync', async (cityId) => {
     try {
-        const res = await axios.get(apiUrl + `/itineraries/city/${cityId}`)
+        const res = await axios.get(apiUrl + `/api/itineraries/city/${cityId}`)
         return res.data.response
     } catch (error) {
         return []

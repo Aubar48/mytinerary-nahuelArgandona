@@ -7,7 +7,7 @@ export const Cards = () => {
   const [cityData, setCityData] = useState([]);
 
   useEffect(() => {
-    axios(apiUrl + "/cities")
+    axios(apiUrl + "/api/cities")
       .then((response) => setCityData(response.data.response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);

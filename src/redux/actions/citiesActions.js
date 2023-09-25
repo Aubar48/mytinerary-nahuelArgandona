@@ -3,7 +3,7 @@ import axios from "axios";
 import apiUrl from "../../apiUrl";
 const getCitiesAsync = createAsyncThunk('getCitiesAsync', async () => {
     try {
-        const res = await axios.get(apiUrl + "/cities")
+        const res = await axios.get(apiUrl + "/api/cities")
         return res.data.response
     } catch (error) {
         return []

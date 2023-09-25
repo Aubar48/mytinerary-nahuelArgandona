@@ -11,7 +11,7 @@ export const Banner = () => {
 
   useEffect(() => {
     axios
-      .get(apiUrl +"/cities/carousel")
+      .get(apiUrl +"/api/cities/carousel")
       .then((response) => {
         setCarouselData(response.data.data_carousel);
         setIsLoading(false);

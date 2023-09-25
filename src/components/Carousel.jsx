@@ -8,7 +8,7 @@ export const Carousel2 = () => {
 
   useEffect(() => {
     axios
-      .get(apiUrl + "/cities/carousel")
+      .get(apiUrl + "/api/cities/carousel")
       .then((response) => {
         if (Array.isArray(response.data.data_carousel)) {
           setCityGroupCarousel(response.data.data_carousel);

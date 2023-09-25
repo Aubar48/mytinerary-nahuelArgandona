@@ -7,7 +7,7 @@ export const CardsActivities = ({ nameItinerary }) => {
   const [noActivities, setNoActivities] = useState(false);
 
   useEffect(() => {
-    axios(apiUrl + `/activities/itinerary/${nameItinerary}`)
+    axios(apiUrl + `/api/activities/itinerary/${nameItinerary}`)
       .then((response) => {
         const activitiesData = response.data.response;
         if (activitiesData.length === 0) {

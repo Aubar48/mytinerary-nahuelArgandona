@@ -7,7 +7,7 @@ const read_user = createAsyncThunk(
     async ({ user_id }) => {
 
         try {
-            let data = await axios(apiUrl + 'users/' + user_id)
+            let data = await axios(apiUrl + '/api/users/' + user_id)
 
             return { userItineraries: data.data.response }
         } catch (error) {
@@ -21,7 +21,7 @@ const read_users = createAsyncThunk(
     'read_users',
     async () => {
         try {
-            let users = await axios(apiUrl + 'users')
+            let users = await axios(apiUrl + '/api/users')
             return {
                 users: users.data.response
             }
@@ -38,7 +38,7 @@ const signin = createAsyncThunk(
     'signin',
     async (obj) => {
         try {
-            let data = await axios.post(apiUrl + 'auth/signin', obj.data)
+            let data = await axios.post(apiUrl + '/api/auth/signin', obj.data)
             
             localStorage.setItem('token', data.data.response.token)
             return {
@@ -61,7 +61,7 @@ const signinGoogle = createAsyncThunk(
     'signinGoogle',
     async (obj) => {
         try {
-            let data = await axios.post(apiUrl + 'auth/google', obj.data)
+            let data = await axios.post(apiUrl + '/api/auth/google', obj.data)
             localStorage.setItem('token', data.data.response.token)
             return {
                 user: data.data.response.user,
@@ -85,7 +85,7 @@ const signin_token = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
-            let data = await axios.post(apiUrl + 'auth/token', null, authorization)
+            let data = await axios.post(apiUrl + '/api/auth/token', null, authorization)
             //console.log(data);
             localStorage.setItem('token', data.data.response.token)
             return {
@@ -131,7 +131,7 @@ const signup = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
-            const response = await axios.post(apiUrl + 'auth/register', obj.data, null, authorization);
+            const response = await axios.post(apiUrl + '/api/auth/register', obj.data, null, authorization);
             return {
                 user: response.data.response.user,
                 token: response.data.response.token,
@@ -154,7 +154,7 @@ const update_user = createAsyncThunk(
         try {
             let token = localStorage.getItem('token')
             let authorization = { headers: { 'Authorization': `Bearer ${token}` } }
-            let data = await axios.put(apiUrl + 'users', obj.data, authorization)
+            let data = await axios.put(apiUrl + '/api/users', obj.data, authorization)
             return {
                 user: data.data.response
             }
