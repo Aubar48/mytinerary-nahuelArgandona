@@ -9,7 +9,7 @@ export default function () {
   let googleButton = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+/*code */
   const handleCredentialResponse = async (response) => {
     const data = { token_google: response.credential };
     dispatch(signinGoogle({ data }))
