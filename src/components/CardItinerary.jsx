@@ -34,7 +34,7 @@ export const CardItinerary = ({ itinerary, user }) => {
   }, []);
   return (
     <div className="flex flex-col items-center px-2">
-      <div className="font-bold text-lg bg-amber-600 mt-1 rounded-lg  border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800">
+      <div className="font-bold text-lg bg-slate-200 mt-1 rounded-lg  border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800">
         <div className="relative">
           <img
             src={itinerary.photo}

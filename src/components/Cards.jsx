@@ -42,11 +42,11 @@ export const Cards = () => {
           />
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center min-h-[29.1vh]">
+      <div className="grid rounded-2xl bg-slate-200 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center min-h-[29.1vh]">
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
-            className="xl:min-h-[50vh] min-h-[60vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800 flex flex-col"
+            className="hover:scale-105 transform-gpu xl:min-h-[50vh] min-h-[60vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800 flex flex-col"
           >
             <div className="relative h-60">
               <img

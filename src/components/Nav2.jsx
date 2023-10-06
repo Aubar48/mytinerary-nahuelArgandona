@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Display from "./Display";
 import Label from "./Label";
@@ -8,6 +8,7 @@ const { signout } = user_actions;
 import Swal from "sweetalert2";
 export default function NavBar() {
   const navigate = useNavigate();
+
   let [show, setShow] = useState(false);
   let photo = useSelector((store) => store.users.user?.photo);
   let dispatch = useDispatch();
@@ -56,7 +57,18 @@ export default function NavBar() {
       },
     },
   ];
+  const [currentTime, setCurrentTime] = useState(new Date());
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
 
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const hours = currentTime.getHours().toString().padStart(2, "0");
+  const minutes = currentTime.getMinutes().toString().padStart(2, "0");
+  const seconds = currentTime.getSeconds().toString().padStart(2, "0");
   return (
     <header className="h-[87.3px] px-10 mb-1 bg-sky-500 flex justify-start items-center">
       <svg
@@ -79,7 +91,7 @@ export default function NavBar() {
       {show && <Display options={options} />}
       <div className="w-full flex justify-between items-center">
         <div className="flex items-center">
-          <p className="drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
+          <p className="max-sm:ml-2 drop-shadow font-bold md:text-xl xl:text-4xl animate-pulse text-gradient-argentina">
             Mytinerary
           </p>
           <img
@@ -92,7 +104,9 @@ export default function NavBar() {
             data-aos-duration="2000"
           />
         </div>
-
+        <div className="max-md:h-[30px] md:h-[50px] max-md:text-[12px] md:text-[20px] shadow-lg border-amber-400 shadow-amber-400 bg-white hover:bg-amber-400 focus:shadow-outline focus:outline-none py-2 max-md:px-2 md:px-3 rounded-2xl cursor-pointer max-lg:ml-10 xl:ml-56">
+          <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+        </div>
         <Label options={options} />
       </div>
     </header>

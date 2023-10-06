@@ -33,15 +33,15 @@ export const DetailsCity = () => {
           alt=""
           className="w-full h-96 object-cover rounded-lg border-solid border-2 shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800"
         />
-        <div className="flex gap-10 w-full text-center justify-center">
-          <h1 className="font-bold text-lg bg-amber-600 px-2 py-1 rounded m-1">
+        <div className="flex gap-10 mt-1 w-full text-center justify-center bg-slate-200">
+          <h1 className="font-bold text-lg bg-amber-600 px-2 py-1 m-1 rounded-md">
             City: {infoCity.city}
           </h1>
-          <h1 className="font-bold text-lg bg-amber-600 px-2 py-1 rounded m-1">
+          <h1 className="font-bold text-lg bg-amber-600 px-2 py-1 m-1 rounded-md">
             Country: {infoCity.country}
           </h1>
         </div>
-        <div className="flex gap-2 max-md:flex-col">
+        <div className="flex justify-center mt-1 gap-2 max-md:flex-col rounded-md bg-slate-200 w-full">
           <h2 className="font-bold text-lg ">
             Fundation: {infoCity.fundation}
           </h2>
@@ -53,7 +53,7 @@ export const DetailsCity = () => {
           </h2>
         </div>
 
-        <p className="font-base text-lg px-2">
+        <p className="mt-1 font-base text-lg px-2 rounded-md bg-slate-200">
           Description: {infoCity.description}
         </p>
         <h2 className="text-center font-bold text-lg bg-amber-600 px-2 py-1 rounded m-1 w-full">
