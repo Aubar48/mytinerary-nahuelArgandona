@@ -18,7 +18,7 @@ export const Cards = () => {
 
   return (
     <div
-      className="px-2 min-h-[79.4vh] multi_bg_example2 font-serif text-gray-950"
+      className="px-4 min-h-[79.4vh] multi_bg_example2 font-serif text-gray-950"
       data-aos="fade-up"
       data-aos-anchor="#example-anchor"
       data-aos-offset="500"
@@ -42,11 +42,11 @@ export const Cards = () => {
           />
         </div>
       )}
-      <div className="grid rounded-2xl bg-slate-200 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center min-h-[29.1vh]">
+      <div className="grid rounded-2xl py-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center min-h-[29.1vh]">
         {filteredCityCards.map((city, index) => (
           <div
             key={index}
-            className="hover:scale-105 transform-gpu xl:min-h-[50vh] min-h-[60vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800 flex flex-col"
+            className="hover:scale-105 transform-gpu duration-700 xl:min-h-[50vh] min-h-[60vh] border rounded-lg shadow-amber-400 shadow-md border-amber-400 hover:border-sky-800 flex flex-col"
           >
             <div className="relative h-60">
               <img
@@ -64,8 +64,8 @@ export const Cards = () => {
               <div className="flex flex-row gap-5 justify-center text-center">
                 <h3 className="font-bold text-lg">{city.country}</h3>
               </div>
-              <div>
-                <p className="font-bold text-sm px-2">
+              <div className="flex flex-col justify-between flex-grow">
+                <p className="font-bold text-sm ">
                   {city.smalldescription}
                 </p>
               </div>

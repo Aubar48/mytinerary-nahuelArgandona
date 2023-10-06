@@ -20,7 +20,7 @@ export const Card = () => {
       data-aos-duration="1000"
     >
       {cityData && (
-        <div className="hover:scale-105 transform-gpu bg-slate-200 flex max-md:mt-2 max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2 hover:border-sky-800  ">
+        <div className="hover:scale-105 transform-gpu duration-700 bg-slate-200 flex max-md:mt-2 max-md:justify-center border rounded-lg h-auto w-auto shadow-amber-400 shadow-md border-amber-400 mb-2 hover:border-sky-800  ">
           <div className="flex flex-col max-md:justify-center md:justify-between">
             <img
               className="object-cover h-48 w-auto  rounded-lg"

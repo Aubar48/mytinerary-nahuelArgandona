@@ -51,7 +51,7 @@ export const Carousel2 = () => {
             {cityGroup.map((city) => (
               <div
                 key={city._id}
-                className="relative hover:scale-105 transform-gpu shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2 hover:border-sky-800"
+                className="relative hover:scale-105 transform-gpu duration-700 shadow-amber-400 shadow-md border-amber-400 h-52 rounded border-solid border-2 hover:border-sky-800"
               >
                 <img
                   src={city.photo}
