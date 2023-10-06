@@ -1,5 +1,5 @@
 import { SocialIcon } from "react-social-icons";
-import { NavLink } from "react-router-dom";
+
 export const Footer = () => {
   const socialMedia = [
     {
@@ -36,19 +36,16 @@ export const Footer = () => {
           />
         </div>
 
-        <nav className="flex md:space-x-4 text-base mt-4 md:mt-0 max-sm:gap-2 max-sm:py-2 max-xl:mr-10 xl:mr-36 font-serif">
-          <NavLink
-            className="focus:bg-secondary hover:bg-secondary rounded-xl py-2 px-4 bg-white hover:text-yellow-300 border-solid items-center "
-            to={"/"}
+        <nav className="flex flex-col md:space-x-4 text-base mt-4 md:mt-0 max-sm:gap-2 max-sm:py-2 max-xl:mr-10 xl:mr-36 font-serif">
+          <a
+            className="rounded-xl py-2 px-4 hover:text-yellow-300 border-solid items-center "
+            href="https://aubar48.github.io/miPortafolioNahuel/"
           >
-            Home
-          </NavLink>
-          <NavLink
-            className="focus:bg-secondary hover:bg-secondary rounded-xl py-2 px-4 bg-white hover:text-yellow-300 items-center "
-            to={"/cities"}
-          >
-            Cities
-          </NavLink>
+           © Nahuel Argandoña {new Date().getDate()}-
+            {new Date().getMonth() + 1}-{new Date().getFullYear()}
+            
+          </a>
+          
         </nav>
         <div className="flex gap-2 h-auto">
           {socialMedia.map((url, index) => (
